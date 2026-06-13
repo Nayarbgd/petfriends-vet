@@ -1,0 +1,195 @@
+FASE TÉCNICA PREVIA — PRODUCCIÓN Y DESPLIEGUE
+Objetivo:
+Convertir el proyecto en una aplicación lista para producción antes de realizar cualquier optimización SEO.
+IMPORTANTE:
+No modificar diseño.
+No modificar copy.
+No modificar estructura visual.
+Únicamente preparar el proyecto para despliegue profesional.
+STACK REQUERIDO
+• React 19
+• Vite
+• Tailwind CSS 3.4.17
+• GSAP 3
+• ScrollTrigger
+• Lucide React
+IMPLEMENTACIÓN OBLIGATORIA
+Crear automáticamente:
+1.	vercel.json
+Ubicación:
+Raíz del proyecto
+Configuración obligatoria:
+{
+"framework": "vite",
+"outputDirectory": "dist/public",
+"rewrites": [
+{
+"source": "/(.*)",
+"destination": "/index.html"
+}
+]
+}
+No esperar a que falle el deploy.
+Crear el archivo desde el principio.
+2.	Verificar routing SPA
+Todas las rutas deben funcionar:
+/
+/about
+/services
+/contact
+/* o las que haya como pestaña
+Al refrescar cualquier ruta:
+No deben existir errores 404.
+3.	Configuración de build
+Verificar:
+• npm run build
+• npm run dev
+• npm run preview
+Sin errores.
+4.	Estructura de producción
+Verificar:
+• Assets optimizados
+• Imports limpios
+• Componentes reutilizables
+• Sin dependencias rotas
+• Sin warnings críticos
+5.	Optimización inicial
+Implementar:
+• Lazy loading
+• Dynamic imports cuando sea posible
+• Component splitting
+• Eliminación de código muerto
+• Optimización de imágenes
+6.	Accesibilidad técnica
+Implementar:
+• aria-labels
+• keyboard navigation
+• semantic HTML
+• focus states
+Resultado esperado:
+Production Ready Score:
+100%
+________________________________________
+FASE 0 — PREPARACIÓN Y AUDITORÍA
+Objetivo:
+Entender el estado actual de la web antes de tocar nada.
+Verificar:
+• Indexabilidad
+• Arquitectura actual
+• Meta tags
+• Sitemap
+• Robots.txt
+• Schema
+• Core Web Vitals
+• Mobile usability
+• Accesibilidad
+• Imágenes
+• SEO local
+• Canibalización
+• URLs
+Entregable:
+• Puntuación SEO estimada
+• Lista priorizada de problemas
+• Plan de implementación
+________________________________________
+FASE 1 — FUNDAMENTOS SEO
+Objetivo:
+Resolver el 80% de los problemas SEO con el menor esfuerzo.
+Implementar:
+• Titles únicos
+• Meta descriptions
+• Open Graph
+• Twitter Cards
+• Robots.txt
+• Sitemap.xml
+• Canonicals
+• LocalBusiness Schema
+• FAQ Schema
+• Aggregate Rating Schema
+• SEO Head por página
+No modificar diseño.
+Resultado esperado:
+SEO Score:
+60 → 80+
+________________________________________
+FASE 2 — INDEXACIÓN Y CRAWLABILITY
+Objetivo:
+Ayudar a Google a entender y recorrer el sitio.
+Implementar:
+• Alt text
+• Imágenes indexables
+• Internal linking
+• Footer links
+• Breadcrumbs
+• Canonicals avanzados
+• Optimización de navegación
+• Accesibilidad SEO
+• Aria labels
+• Lazy loading
+• Image preload
+• Preconnect
+No modificar diseño.
+Resultado esperado:
+SEO Score:
+80 → 88+
+________________________________________
+FASE 3 — SEO LOCAL Y AUTORIDAD
+Objetivo:
+Dominar búsquedas locales.
+Implementar:
+• City pages
+• Service pages
+• Geo-targeted landing pages
+• Service Area Schema
+• NAP consistency
+• Google Business Profile optimization
+• Review strategy
+• Local citations
+Resultado esperado:
+SEO Score:
+88 → 93+
+________________________________________
+FASE 4 — PERFORMANCE Y CORE WEB VITALS
+Objetivo:
+Mejorar velocidad y experiencia.
+Implementar:
+• WebP
+• AVIF
+• Responsive images
+• LCP optimization
+• CLS reduction
+• JS optimization
+• Code splitting
+• Font optimization
+• Cache strategy
+• Bundle analysis
+Resultado esperado:
+SEO Score:
+93 → 96+
+________________________________________
+FASE 5 — SEO DE ESCALADO
+Objetivo:
+Crear activos que generen tráfico continuo.
+Implementar:
+• Blog SEO
+• Programmatic SEO
+• Topic clusters
+• Pillar pages
+• Link building strategy
+• Content hubs
+• Advanced schema
+• Conversion SEO
+Resultado esperado:
+SEO Score:
+96 → 100
+________________________________________
+REGLA GENERAL
+Antes de pasar a la siguiente fase:
+1.	Implementar.
+2.	Generar reporte.
+3.	Verificar que no se rompió diseño.
+4.	Medir impacto.
+5.	Pasar a la siguiente fase.
+________________________________________
+Add LocalBusiness Schema markup
+

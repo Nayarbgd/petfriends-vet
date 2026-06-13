@@ -2,38 +2,122 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Pet Friends Vet Clinic</title>
-    <meta name="description" content="Pet Friends Vet Clinic — built on Replit. Update this description to reflect the app." />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Pet Friends Vet Clinic" />
-    <meta property="og:description" content="Pet Friends Vet Clinic — built on Replit. Update this description to reflect the app." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+
+    <!-- Primary SEO -->
+    <title>Pet Friends Vet Clinic | 24/7 Veterinary Care in JVC Dubai</title>
+    <meta name="description" content="Expert veterinary care, grooming, vaccinations, deworming, and 24/7 emergency services for dogs and cats in Jumeirah Village Circle (JVC), Dubai. Part of Ragab Elhofy Group." />
+    <meta name="keywords" content="vet clinic JVC Dubai, veterinary JVC, pet grooming Dubai, emergency vet Dubai, 24/7 vet Dubai, vaccinations Dubai pets, deworming Dubai" />
+    <meta name="author" content="Pet Friends Vet Clinic" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#FF8A00" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://petfriendsvet.ae/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pet Friends Vet Clinic" />
+    <meta property="og:url" content="https://petfriendsvet.ae/" />
+    <meta property="og:title" content="Pet Friends Vet Clinic | 24/7 Veterinary Care in JVC Dubai" />
+    <meta property="og:description" content="Expert veterinary care, grooming, vaccinations, deworming, and 24/7 emergency services for dogs and cats in JVC, Dubai." />
+    <meta property="og:image" content="https://petfriendsvet.ae/opengraph.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Pet Friends Vet Clinic — JVC Dubai" />
+    <meta property="og:locale" content="en_AE" />
+
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pet Friends Vet Clinic" />
-    <meta name="twitter:description" content="Pet Friends Vet Clinic — built on Replit. Update this description to reflect the app." />
+    <meta name="twitter:site" content="@petfriendsvet" />
+    <meta name="twitter:title" content="Pet Friends Vet Clinic | 24/7 Vet Care in JVC Dubai" />
+    <meta name="twitter:description" content="Expert vet care, grooming, vaccinations and 24/7 emergency services in JVC, Dubai." />
+    <meta name="twitter:image" content="https://petfriendsvet.ae/opengraph.jpg" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Performance: preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+
+    <!-- Geo / Local -->
+    <meta name="geo.region" content="AE-DU" />
+    <meta name="geo.placename" content="Jumeirah Village Circle, Dubai" />
+    <meta name="geo.position" content="25.0496;55.2020" />
+    <meta name="ICBM" content="25.0496, 55.2020" />
+
+    <!-- LocalBusiness + VeterinaryCare Schema (baseline — each page overrides with PageHead) -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Pet Friends Vet Clinic",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Sobha Daffodil, Al Barsha South Fourth",
-          "addressLocality": "Jumeirah Village Circle",
-          "addressRegion": "Dubai",
-          "addressCountry": "UAE"
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "VeterinaryCare"],
+      "@id": "https://petfriendsvet.ae/#organization",
+      "name": "Pet Friends Vet Clinic",
+      "alternateName": "Pet Friends Veterinary Clinic JVC",
+      "description": "24/7 veterinary care, grooming, vaccinations, deworming, spay/neuter and emergency services for dogs and cats in Jumeirah Village Circle, Dubai.",
+      "url": "https://petfriendsvet.ae",
+      "telephone": "+971527394636",
+      "priceRange": "AED 100–600",
+      "image": "https://petfriendsvet.ae/opengraph.jpg",
+      "logo": "https://petfriendsvet.ae/favicon.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sobha Daffodil, Al Barsha South Fourth",
+        "addressLocality": "Jumeirah Village Circle",
+        "addressRegion": "Dubai",
+        "addressCountry": "AE",
+        "postalCode": "00000"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.0496,
+        "longitude": 55.2020
+      },
+      "hasMap": "https://maps.google.com/?q=Pet+Friends+Vet+Clinic+JVC+Dubai",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "00:00",
+          "closes": "06:00"
         },
-        "telephone": "+971527394636",
-        "openingHours": [
-          "Mo-Su 00:00-06:00",
-          "Mo-Su 10:00-00:00"
-        ]
-      }
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "10:00",
+          "closes": "23:59"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "1053",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "sameAs": [
+        "https://www.instagram.com/pet_friends_vet_clinic",
+        "https://wa.me/971527394636"
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Dubai"
+      },
+      "serviceType": [
+        "Veterinary Check-ups",
+        "Vaccinations",
+        "Deworming",
+        "Pet Grooming",
+        "Spay and Neuter",
+        "24/7 Emergency Veterinary Care"
+      ],
+      "currenciesAccepted": "AED",
+      "paymentAccepted": "Cash, Credit Card"
+    }
     </script>
   </head>
   <body>

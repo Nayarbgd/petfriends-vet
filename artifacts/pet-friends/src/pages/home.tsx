@@ -5,15 +5,18 @@ import { Phone, MessageCircle, Star, StarHalf, ChevronRight, X, ChevronLeft } fr
 import heroDogImg from "@assets/ChatGPT_Image_13_jun_2026,_09_50_23_p.m._1781373267394.png";
 import PageHead from "@/components/seo/PageHead";
 import { BG, ORANGE, PURPLE, primaryBtn, secondaryBtn, CARD_BG, CARD_BORDER, iconOrange } from "@/lib/brand";
-import { services, reviews } from "@/lib/data";
+import { services, reviews, faqs, SITE_URL } from "@/lib/data";
 
 const vetSchema = {
   "@context": "https://schema.org",
   "@type": "VeterinaryCare",
+  "@id": "https://petfriendsvet.ae/#organization",
   name: "Pet Friends Vet Clinic",
   description: "24/7 veterinary care, grooming and emergency services in JVC, Dubai",
   url: "https://petfriendsvet.ae",
   telephone: "+971527394636",
+  priceRange: "AED 100–600",
+  image: "https://petfriendsvet.ae/opengraph.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Sobha Daffodil, Al Barsha South Fourth",
@@ -21,8 +24,20 @@ const vetSchema = {
     addressRegion: "Dubai",
     addressCountry: "AE",
   },
+  geo: { "@type": "GeoCoordinates", latitude: 25.0496, longitude: 55.2020 },
   openingHours: ["Mo-Su 00:00-06:00", "Mo-Su 10:00-24:00"],
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.5", reviewCount: "1053" },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.5", reviewCount: "1053", bestRating: "5", worstRating: "1" },
+  sameAs: ["https://www.instagram.com/pet_friends_vet_clinic"],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 const clientPhotos = [
@@ -220,7 +235,7 @@ export default function Home() {
         title="Pet Friends Vet Clinic | 24/7 Veterinary Care in JVC Dubai"
         description="Expert veterinary care, grooming, vaccinations, deworming, and 24/7 emergency services for dogs and cats in Jumeirah Village Circle, Dubai."
         canonical="https://petfriendsvet.ae/"
-        schema={vetSchema}
+        schemas={[vetSchema, faqSchema]}
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}

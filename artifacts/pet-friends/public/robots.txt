@@ -1,2 +1,14 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://petfriendsvet.ae/sitemap.xml
+
+# Block AI training crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /

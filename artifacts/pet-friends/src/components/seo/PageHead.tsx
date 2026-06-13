@@ -8,6 +8,7 @@ interface PageHeadProps {
   ogDescription?: string;
   ogImage?: string;
   schema?: object;
+  schemas?: object[];
   noIndex?: boolean;
 }
 
@@ -17,8 +18,9 @@ export default function PageHead({
   canonical,
   ogTitle,
   ogDescription,
-  ogImage = "/opengraph.jpg",
+  ogImage = "https://petfriendsvet.ae/opengraph.jpg",
   schema,
+  schemas,
   noIndex = false,
 }: PageHeadProps) {
   useEffect(() => {
@@ -34,20 +36,19 @@ export default function PageHead({
       el.setAttribute("content", value);
     };
 
-    setMeta('meta[name="description"]',       "name",     "description",        description);
-    setMeta('meta[property="og:title"]',      "property", "og:title",           ogTitle || title);
-    setMeta('meta[property="og:description"]',"property", "og:description",     ogDescription || description);
-    setMeta('meta[property="og:image"]',      "property", "og:image",           ogImage);
-    setMeta('meta[property="og:type"]',       "property", "og:type",            "website");
-    setMeta('meta[name="twitter:card"]',      "name",     "twitter:card",       "summary_large_image");
-    setMeta('meta[name="twitter:title"]',     "name",     "twitter:title",      ogTitle || title);
-    setMeta('meta[name="twitter:description"]',"name",    "twitter:description",ogDescription || description);
+    setMeta('meta[name="description"]',         "name",     "description",         description);
+    setMeta('meta[property="og:title"]',         "property", "og:title",            ogTitle || title);
+    setMeta('meta[property="og:description"]',   "property", "og:description",      ogDescription || description);
+    setMeta('meta[property="og:image"]',         "property", "og:image",            ogImage);
+    setMeta('meta[property="og:type"]',          "property", "og:type",             "website");
+    setMeta('meta[name="twitter:card"]',         "name",     "twitter:card",        "summary_large_image");
+    setMeta('meta[name="twitter:title"]',        "name",     "twitter:title",       ogTitle || title);
+    setMeta('meta[name="twitter:description"]',  "name",     "twitter:description", ogDescription || description);
+    setMeta('meta[name="twitter:image"]',        "name",     "twitter:image",       ogImage);
 
-    if (noIndex) {
-      setMeta('meta[name="robots"]', "name", "robots", "noindex,nofollow");
-    } else {
-      setMeta('meta[name="robots"]', "name", "robots", "index,follow");
-    }
+    setMeta('meta[name="robots"]', "name", "robots",
+      noIndex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1"
+    );
 
     const url = canonical || window.location.href;
     let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -59,16 +60,20 @@ export default function PageHead({
     canonicalEl.setAttribute("href", url);
     setMeta('meta[property="og:url"]', "property", "og:url", url);
 
-    const existingSchema = document.getElementById("page-schema");
-    if (existingSchema) existingSchema.remove();
-    if (schema) {
+    document.querySelectorAll("script[data-page-schema]").forEach((el) => el.remove());
+
+    const allSchemas: object[] = [];
+    if (schemas && schemas.length > 0) allSchemas.push(...schemas);
+    else if (schema) allSchemas.push(schema);
+
+    allSchemas.forEach((s, i) => {
       const script = document.createElement("script");
-      script.id = "page-schema";
+      script.setAttribute("data-page-schema", String(i));
       script.type = "application/ld+json";
-      script.textContent = JSON.stringify(schema);
+      script.textContent = JSON.stringify(s);
       document.head.appendChild(script);
-    }
-  }, [title, description, canonical, ogTitle, ogDescription, ogImage, schema, noIndex]);
+    });
+  }, [title, description, canonical, ogTitle, ogDescription, ogImage, schema, schemas, noIndex]);
 
   return null;
 }
