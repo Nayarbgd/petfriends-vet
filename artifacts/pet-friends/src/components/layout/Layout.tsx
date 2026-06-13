@@ -3,8 +3,6 @@ import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Phone } from "lucide-react";
-import { primaryBtn } from "@/lib/brand";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -39,7 +37,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         target="_blank"
         rel="noreferrer"
         data-testid="fab-whatsapp"
-        className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white z-50 mb-14 md:mb-0"
+        className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white z-50"
         style={{ boxShadow: "0 4px 28px rgba(37,211,102,0.50)" }}
         aria-label="Chat on WhatsApp"
         animate={{ y: [0, -8, 0] }}
@@ -52,19 +50,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </svg>
       </motion.a>
 
-      <div
-        className="md:hidden fixed bottom-0 left-0 w-full p-3 z-40"
-        style={{ background: "#0F1018", borderTop: "1px solid rgba(255,138,0,0.20)", boxShadow: "0 -4px 24px rgba(0,0,0,0.6)" }}
-      >
-        <a
-          href="tel:+971527394636"
-          data-testid="link-mobile-call-bar"
-          className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm"
-          style={primaryBtn}
-        >
-          <Phone className="w-4 h-4" />+971 52 739 4636 · Call Now
-        </a>
-      </div>
     </div>
   );
 }

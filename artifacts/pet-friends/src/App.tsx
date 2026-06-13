@@ -17,14 +17,16 @@ const Contact         = lazy(() => import("@/pages/contact"));
 const BookAppointment = lazy(() => import("@/pages/book-appointment"));
 const Emergency       = lazy(() => import("@/pages/emergency"));
 
+const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
 const pageVariants = {
-  initial: { opacity: 0, y: 14 },
+  initial: { opacity: 0, y: isMobile ? 6 : 14 },
   animate: { opacity: 1, y: 0 },
-  exit:    { opacity: 0, y: -10 },
+  exit:    { opacity: 0, y: isMobile ? -4 : -10 },
 };
 
 const pageTransition = {
-  duration: 0.32,
+  duration: isMobile ? 0.22 : 0.32,
   ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
 };
 
