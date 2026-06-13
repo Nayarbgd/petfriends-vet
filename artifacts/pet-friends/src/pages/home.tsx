@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "wouter";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Phone, MessageCircle, Star, StarHalf, ChevronRight, X, ChevronLeft } from "lucide-react";
 import heroDogImg from "@assets/hero-dog.webp";
 import PageHead from "@/components/seo/PageHead";
@@ -230,6 +230,10 @@ function ClientGallery() {
 }
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const dogY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+
   return (
     <>
       <PageHead
@@ -240,15 +244,21 @@ export default function Home() {
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden min-h-[700px] flex items-center">
-        <div
-          className="absolute inset-0 z-0"
+      <section ref={heroRef} className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden min-h-[700px] flex items-center">
+        <motion.div
+          className="absolute z-0 pointer-events-none"
           style={{
+            top: "-8%",
+            left: 0,
+            right: 0,
+            bottom: "-8%",
             backgroundImage: `url(${heroDogImg})`,
             backgroundSize: "52% auto",
-            backgroundPosition: "right 4% center",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 4% center",
             filter: "brightness(1.15) contrast(1.18) saturate(1.45)",
+            y: dogY,
+            willChange: "transform",
           }}
         />
         <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.96) 0%, rgba(13,13,18,0.80) 38%, rgba(13,13,18,0.10) 100%)" }} />
