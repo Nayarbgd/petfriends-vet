@@ -178,15 +178,20 @@ export default function Home() {
         {/* ── HERO ────────────────────────────────────────────────────────────── */}
         <section
           className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden min-h-[700px] flex items-center"
-          style={{
-            backgroundImage: `url(${heroDogImg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center right",
-            backgroundRepeat: "no-repeat",
-          }}
         >
+          {/* Hero dog image with boosted color/contrast/brightness */}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `url(${heroDogImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center right",
+              backgroundRepeat: "no-repeat",
+              filter: "brightness(1.18) contrast(1.22) saturate(1.55)",
+            }}
+          />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.88) 0%, rgba(13,13,18,0.70) 50%, rgba(13,13,18,0.30) 100%)" }} />
+          <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.88) 0%, rgba(13,13,18,0.70) 50%, rgba(13,13,18,0.20) 100%)" }} />
           {/* Subtle brand glow on top of image */}
           <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 10% 50%, rgba(255,138,0,0.12) 0%, transparent 50%)" }} />
 
@@ -305,17 +310,14 @@ export default function Home() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="relative h-[500px]">
-                <div
-                  className="absolute inset-0 rounded-2xl flex items-center justify-center text-sm font-medium p-8 text-center"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(255,138,0,0.12), rgba(123,74,226,0.15))",
-                    border: "2px dashed rgba(123,74,226,0.45)",
-                    color: "rgba(123,74,226,0.70)",
-                    boxShadow: "0 0 48px rgba(123,74,226,0.12), inset 0 0 32px rgba(255,138,0,0.06)",
-                  }}
-                  aria-label="Team photo — friendly staff in scrubs at Pet Friends Vet Clinic JVC Dubai"
-                >
-                  [Team photo — friendly staff in scrubs]
+                <div className="absolute inset-0 rounded-2xl overflow-hidden" style={{ boxShadow: "0 0 48px rgba(123,74,226,0.18)" }}>
+                  <img
+                    src="/team.jpg"
+                    alt="Pet Friends Vet Clinic team — friendly staff in scrubs at JVC Dubai"
+                    className="w-full h-full object-cover object-center"
+                    style={{ filter: "brightness(1.05) contrast(1.05)" }}
+                  />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 55%, rgba(15,16,24,0.55) 100%)" }} />
                 </div>
                 <div className="absolute -bottom-6 -right-6 p-6 rounded-2xl shadow-2xl max-w-[250px]" style={{ background: "linear-gradient(135deg, rgba(255,138,0,0.15), rgba(123,74,226,0.10)), #15151D", border: "1px solid rgba(255,138,0,0.25)", boxShadow: "0 8px 32px rgba(255,138,0,0.15)" }}>
                   <div className="font-bold text-2xl mb-1 text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(135deg, ${ORANGE}, ${PURPLE})` }}>24/7</div>
