@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
-import { Phone, MessageCircle, Star, StarHalf, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, MessageCircle, Star, StarHalf, ChevronRight, X, ChevronLeft } from "lucide-react";
 import heroDogImg from "@assets/ChatGPT_Image_13_jun_2026,_09_50_23_p.m._1781373267394.png";
 import PageHead from "@/components/seo/PageHead";
 import { BG, ORANGE, PURPLE, primaryBtn, secondaryBtn, CARD_BG, CARD_BORDER, iconOrange } from "@/lib/brand";
@@ -24,6 +24,160 @@ const vetSchema = {
   openingHours: ["Mo-Su 00:00-06:00", "Mo-Su 10:00-24:00"],
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.5", reviewCount: "1053" },
 };
+
+const clientPhotos = [
+  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378827/f3d5431e-ea6f-4d9d-828b-5960732a0974_wykok3.png", position: "center center" },
+  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378368/1c5b7d14-d587-4057-ab7d-c07361b85abd_cdemre.png", position: "center top"    },
+  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378028/8fb59bca-4fc1-41aa-a8c4-210577e38cae_l1097p.png", position: "center center" },
+  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377846/75d6b711-0498-442d-a214-815d15caf7b6_o0khy9.png", position: "center top"    },
+  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377558/43e9a7ac-b6d4-4941-952e-1d14dd6629c2_as3z6j.png", position: "center center" },
+  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377620/d7d1907a-d537-42de-b6b6-ccc2de0132b0_qkrkng.png", position: "center center" },
+];
+
+function ClientGallery() {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const close = useCallback(() => setLightbox(null), []);
+  const prev = useCallback(() => setLightbox((i) => (i! + clientPhotos.length - 1) % clientPhotos.length), []);
+  const next = useCallback(() => setLightbox((i) => (i! + 1) % clientPhotos.length), []);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape")     close();
+      if (e.key === "ArrowLeft")  prev();
+      if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [lightbox, close, prev, next]);
+
+  return (
+    <section className="py-24 relative overflow-hidden" style={{ background: BG, borderTop: "1px solid rgba(123,74,226,0.12)" }}>
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(255,138,0,0.07) 0%, transparent 65%)" }} />
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.35)", color: ORANGE }}>
+            Our Community
+          </div>
+          <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4">Our Happy Clients</h2>
+          <p className="text-lg" style={{ color: "rgba(255,255,255,0.55)" }}>
+            Every visit is a happy tail — meet some of the pets who call us home.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+          {clientPhotos.map((photo, i) => (
+            <motion.button
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.07 }}
+              onClick={() => setLightbox(i)}
+              className="relative aspect-square rounded-2xl overflow-hidden group cursor-zoom-in focus:outline-none focus-visible:ring-2"
+              style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.40)", focusRingColor: ORANGE } as React.CSSProperties}
+              aria-label={`View client photo ${i + 1}`}
+            >
+              <img
+                src={photo.src}
+                alt={`Happy client ${i + 1}`}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ objectPosition: photo.position }}
+              />
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: "linear-gradient(180deg, transparent 40%, rgba(15,16,24,0.55) 100%)" }}
+              />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-sm" style={{ background: "rgba(255,138,0,0.25)", border: "1.5px solid rgba(255,138,0,0.60)" }}>
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" /></svg>
+                </div>
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+
+      {/* ── LIGHTBOX ──────────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {lightbox !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8"
+            style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(8px)" }}
+            onClick={close}
+          >
+            {/* Image container — stop propagation so clicking image doesn't close */}
+            <motion.div
+              initial={{ scale: 0.88, opacity: 0 }}
+              animate={{ scale: 1,    opacity: 1 }}
+              exit={{ scale: 0.88,    opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative flex items-center justify-center w-full max-w-3xl max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={clientPhotos[lightbox].src}
+                alt={`Client photo ${lightbox + 1}`}
+                className="rounded-2xl object-contain w-full max-h-[80vh] shadow-2xl select-none"
+                style={{ objectPosition: clientPhotos[lightbox].position }}
+                draggable={false}
+              />
+
+              {/* Counter */}
+              <div
+                className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold"
+                style={{ background: "rgba(0,0,0,0.60)", color: "rgba(255,255,255,0.70)", backdropFilter: "blur(6px)" }}
+              >
+                {lightbox + 1} / {clientPhotos.length}
+              </div>
+
+              {/* Close */}
+              <button
+                onClick={close}
+                className="absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+                style={{ background: "rgba(0,0,0,0.60)", color: "white", backdropFilter: "blur(6px)" }}
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Prev */}
+              <button
+                onClick={(e) => { e.stopPropagation(); prev(); }}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                style={{ background: "rgba(255,138,0,0.25)", border: "1.5px solid rgba(255,138,0,0.50)", color: "white", backdropFilter: "blur(6px)" }}
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Next */}
+              <button
+                onClick={(e) => { e.stopPropagation(); next(); }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                style={{ background: "rgba(255,138,0,0.25)", border: "1.5px solid rgba(255,138,0,0.50)", color: "white", backdropFilter: "blur(6px)" }}
+                aria-label="Next"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </motion.div>
+
+            {/* Tap-to-close hint on mobile */}
+            <p className="absolute bottom-4 left-0 right-0 text-center text-xs pointer-events-none md:hidden" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Tap outside to close
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -187,64 +341,7 @@ export default function Home() {
       </section>
 
       {/* ── HAPPY CLIENTS GALLERY ────────────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: BG, borderTop: "1px solid rgba(123,74,226,0.12)" }}>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(255,138,0,0.07) 0%, transparent 65%)" }} />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.35)", color: ORANGE }}>
-              Our Community
-            </div>
-            <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4">Our Happy Clients</h2>
-            <p className="text-lg" style={{ color: "rgba(255,255,255,0.55)" }}>
-              Every visit is a happy tail — meet some of the pets who call us home.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
-            {[
-              "https://res.cloudinary.com/djepsudop/image/upload/v1781378827/f3d5431e-ea6f-4d9d-828b-5960732a0974_wykok3.png",
-              "https://res.cloudinary.com/djepsudop/image/upload/v1781378368/1c5b7d14-d587-4057-ab7d-c07361b85abd_cdemre.png",
-              "https://res.cloudinary.com/djepsudop/image/upload/v1781378028/8fb59bca-4fc1-41aa-a8c4-210577e38cae_l1097p.png",
-              "https://res.cloudinary.com/djepsudop/image/upload/v1781377846/75d6b711-0498-442d-a214-815d15caf7b6_o0khy9.png",
-              "https://res.cloudinary.com/djepsudop/image/upload/v1781377558/43e9a7ac-b6d4-4941-952e-1d14dd6629c2_as3z6j.png",
-              "https://res.cloudinary.com/djepsudop/image/upload/v1781377620/d7d1907a-d537-42de-b6b6-ccc2de0132b0_qkrkng.png",
-            ].map((src, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="relative aspect-square rounded-2xl overflow-hidden group"
-                style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.40)" }}
-              >
-                <img
-                  src={src}
-                  alt={`Happy client ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => {
-                    const el = e.currentTarget as HTMLImageElement;
-                    el.style.display = "none";
-                    const parent = el.parentElement!;
-                    parent.style.background = i % 2 === 0
-                      ? "linear-gradient(135deg, rgba(255,138,0,0.14), rgba(123,74,226,0.10))"
-                      : "linear-gradient(135deg, rgba(123,74,226,0.14), rgba(255,138,0,0.10))";
-                    parent.style.border = `1.5px dashed ${i % 2 === 0 ? "rgba(255,138,0,0.40)" : "rgba(123,74,226,0.40)"}`;
-                    const placeholder = document.createElement("div");
-                    placeholder.className = "absolute inset-0 flex flex-col items-center justify-center gap-2";
-                    placeholder.innerHTML = `<div style="font-size:2.5rem">🐾</div><div style="font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase">Photo ${i + 1}</div>`;
-                    parent.appendChild(placeholder);
-                  }}
-                />
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{ background: "linear-gradient(180deg, transparent 40%, rgba(15,16,24,0.70) 100%)" }}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ClientGallery />
 
       {/* ── FINAL CTA ─────────────────────────────────────────────────────── */}
       <section className="py-28 text-center relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(255,138,0,0.16) 0%, transparent 55%), radial-gradient(ellipse at 70% 50%, rgba(123,74,226,0.16) 0%, transparent 55%), #0F1018", borderTop: "1px solid rgba(255,138,0,0.15)" }}>
