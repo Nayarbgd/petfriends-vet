@@ -202,12 +202,12 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
             {[
-              "/clients/client-1.jpg",
-              "/clients/client-2.jpg",
-              "/clients/client-3.jpg",
-              "/clients/client-4.jpg",
-              "/clients/client-5.jpg",
-              "/clients/client-6.jpg",
+              "https://res.cloudinary.com/djepsudop/image/upload/v1781378827/f3d5431e-ea6f-4d9d-828b-5960732a0974_wykok3.png",
+              "https://res.cloudinary.com/djepsudop/image/upload/v1781378368/1c5b7d14-d587-4057-ab7d-c07361b85abd_cdemre.png",
+              "https://res.cloudinary.com/djepsudop/image/upload/v1781378028/8fb59bca-4fc1-41aa-a8c4-210577e38cae_l1097p.png",
+              "https://res.cloudinary.com/djepsudop/image/upload/v1781377846/75d6b711-0498-442d-a214-815d15caf7b6_o0khy9.png",
+              "https://res.cloudinary.com/djepsudop/image/upload/v1781377558/43e9a7ac-b6d4-4941-952e-1d14dd6629c2_as3z6j.png",
+              "https://res.cloudinary.com/djepsudop/image/upload/v1781377620/d7d1907a-d537-42de-b6b6-ccc2de0132b0_qkrkng.png",
             ].map((src, i) => (
               <motion.div
                 key={i}
