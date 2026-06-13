@@ -67,29 +67,29 @@ export default function Services() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((svc, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="p-8 rounded-2xl cursor-pointer group transition-all duration-300"
-                style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 4px 24px rgba(166,94,18,0.08)" }}
-                whileHover={{ y: -6, boxShadow: "0 20px 56px rgba(166,94,18,0.22), 0 0 0 1px rgba(255,152,0,0.20)" }}
-              >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={svc.style}>
-                  {svc.icon}
-                </div>
-                <h2 className="text-xl font-bold mb-3 font-poppins text-white">{svc.title}</h2>
-                <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>{svc.desc}</p>
-                <Link
-                  href="/book-appointment"
-                  className="flex items-center font-semibold text-sm"
-                  style={{ color: i % 2 === 0 ? ORANGE : PURPLE }}
+              <Link href={`/services/${svc.service}`} key={i} className="block">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="p-8 rounded-2xl cursor-pointer group transition-all duration-300 h-full"
+                  style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 4px 24px rgba(166,94,18,0.08)" }}
+                  whileHover={{ y: -6, boxShadow: "0 20px 56px rgba(166,94,18,0.22), 0 0 0 1px rgba(255,152,0,0.20)" }}
                 >
-                  Book this service <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </motion.div>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={svc.style}>
+                    {svc.icon}
+                  </div>
+                  <h2 className="text-xl font-bold mb-3 font-poppins text-white">{svc.title}</h2>
+                  <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>{svc.desc}</p>
+                  <div
+                    className="flex items-center font-semibold text-sm"
+                    style={{ color: i % 2 === 0 ? ORANGE : PURPLE }}
+                  >
+                    Learn more & book <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>

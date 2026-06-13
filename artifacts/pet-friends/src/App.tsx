@@ -11,6 +11,7 @@ const queryClient = new QueryClient();
 
 const Home            = lazy(() => import("@/pages/home"));
 const Services        = lazy(() => import("@/pages/services"));
+const ServiceDetail   = lazy(() => import("@/pages/service-detail"));
 const About           = lazy(() => import("@/pages/about"));
 const Reviews         = lazy(() => import("@/pages/reviews"));
 const Contact         = lazy(() => import("@/pages/contact"));
@@ -47,6 +48,7 @@ function AnimatedRoutes() {
         <Switch>
           <Route path="/"                 component={Home}            />
           <Route path="/services"         component={Services}        />
+          <Route path="/services/:slug"   component={ServiceDetail}   />
           <Route path="/about"            component={About}           />
           <Route path="/reviews"          component={Reviews}         />
           <Route path="/contact"          component={Contact}         />
