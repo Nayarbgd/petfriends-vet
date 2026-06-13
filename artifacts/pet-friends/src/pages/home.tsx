@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "wouter";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, Star, StarHalf, ChevronRight, X, ChevronLeft } from "lucide-react";
-import heroDogImg from "@assets/hero-dog.webp";
 import PageHead from "@/components/seo/PageHead";
 import { BG, ORANGE, PURPLE, primaryBtn, secondaryBtn, CARD_BG, CARD_BORDER, iconOrange } from "@/lib/brand";
 import { services, reviews, faqs, SITE_URL } from "@/lib/data";
@@ -237,9 +236,6 @@ function ClientGallery() {
 }
 
 export default function Home() {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const dogY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
 
   return (
     <>
@@ -251,45 +247,7 @@ export default function Home() {
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden min-h-[700px] flex items-center">
-
-        {/* Mobile background — portrait image, full cover */}
-        <div
-          className="absolute inset-0 z-0 md:hidden"
-          style={{
-            backgroundImage: `url(/hero-dog-mobile.webp)`,
-            backgroundSize: "cover",
-            backgroundPosition: "center 20%",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-        {/* Mobile gradient — stronger overlay so text is readable */}
-        <div
-          className="absolute inset-0 z-0 md:hidden"
-          style={{ background: "linear-gradient(180deg, rgba(13,13,18,0.55) 0%, rgba(13,13,18,0.45) 40%, rgba(13,13,18,0.88) 100%)" }}
-        />
-
-        {/* Desktop background — landscape image with parallax */}
-        <motion.div
-          className="absolute z-0 pointer-events-none hidden md:block"
-          style={{
-            top: "-8%",
-            left: 0,
-            right: 0,
-            bottom: "-8%",
-            backgroundImage: `url(${heroDogImg})`,
-            backgroundSize: "52% auto",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "right 4% center",
-            filter: "brightness(1.15) contrast(1.18) saturate(1.45)",
-            y: dogY,
-            willChange: "transform",
-          }}
-        />
-        {/* Desktop gradient */}
-        <div className="absolute inset-0 z-0 hidden md:block" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.96) 0%, rgba(13,13,18,0.80) 38%, rgba(13,13,18,0.10) 100%)" }} />
-
-        <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 10% 50%, rgba(255,138,0,0.12) 0%, transparent 50%)" }} />
+      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 min-h-[700px] flex items-center">
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="max-w-2xl">
