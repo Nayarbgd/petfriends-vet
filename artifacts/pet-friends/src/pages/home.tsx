@@ -186,6 +186,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── HAPPY CLIENTS GALLERY ────────────────────────────────────────── */}
+      <section className="py-24 relative overflow-hidden" style={{ background: BG, borderTop: "1px solid rgba(123,74,226,0.12)" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(255,138,0,0.07) 0%, transparent 65%)" }} />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.35)", color: ORANGE }}>
+              Our Community
+            </div>
+            <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4">Our Happy Clients</h2>
+            <p className="text-lg" style={{ color: "rgba(255,255,255,0.55)" }}>
+              Every visit is a happy tail — meet some of the pets who call us home.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+            {[
+              "/clients/client-1.jpg",
+              "/clients/client-2.jpg",
+              "/clients/client-3.jpg",
+              "/clients/client-4.jpg",
+              "/clients/client-5.jpg",
+              "/clients/client-6.jpg",
+            ].map((src, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className="relative aspect-square rounded-2xl overflow-hidden group"
+                style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.40)" }}
+              >
+                <img
+                  src={src}
+                  alt={`Happy client ${i + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    const el = e.currentTarget as HTMLImageElement;
+                    el.style.display = "none";
+                    const parent = el.parentElement!;
+                    parent.style.background = i % 2 === 0
+                      ? "linear-gradient(135deg, rgba(255,138,0,0.14), rgba(123,74,226,0.10))"
+                      : "linear-gradient(135deg, rgba(123,74,226,0.14), rgba(255,138,0,0.10))";
+                    parent.style.border = `1.5px dashed ${i % 2 === 0 ? "rgba(255,138,0,0.40)" : "rgba(123,74,226,0.40)"}`;
+                    const placeholder = document.createElement("div");
+                    placeholder.className = "absolute inset-0 flex flex-col items-center justify-center gap-2";
+                    placeholder.innerHTML = `<div style="font-size:2.5rem">🐾</div><div style="font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase">Photo ${i + 1}</div>`;
+                    parent.appendChild(placeholder);
+                  }}
+                />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{ background: "linear-gradient(180deg, transparent 40%, rgba(15,16,24,0.70) 100%)" }}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FINAL CTA ─────────────────────────────────────────────────────── */}
       <section className="py-28 text-center relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(255,138,0,0.16) 0%, transparent 55%), radial-gradient(ellipse at 70% 50%, rgba(123,74,226,0.16) 0%, transparent 55%), #0F1018", borderTop: "1px solid rgba(255,138,0,0.15)" }}>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px]" style={{ background: `linear-gradient(to right, transparent, ${ORANGE}80, ${PURPLE}80, transparent)` }} />
