@@ -245,8 +245,26 @@ export default function Home() {
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section ref={heroRef} className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden min-h-[700px] flex items-center">
+
+        {/* Mobile background — portrait image, full cover */}
+        <div
+          className="absolute inset-0 z-0 md:hidden"
+          style={{
+            backgroundImage: `url(/hero-dog-mobile.webp)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center 20%",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        {/* Mobile gradient — stronger overlay so text is readable */}
+        <div
+          className="absolute inset-0 z-0 md:hidden"
+          style={{ background: "linear-gradient(180deg, rgba(13,13,18,0.55) 0%, rgba(13,13,18,0.45) 40%, rgba(13,13,18,0.88) 100%)" }}
+        />
+
+        {/* Desktop background — landscape image with parallax */}
         <motion.div
-          className="absolute z-0 pointer-events-none"
+          className="absolute z-0 pointer-events-none hidden md:block"
           style={{
             top: "-8%",
             left: 0,
@@ -261,7 +279,9 @@ export default function Home() {
             willChange: "transform",
           }}
         />
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.96) 0%, rgba(13,13,18,0.80) 38%, rgba(13,13,18,0.10) 100%)" }} />
+        {/* Desktop gradient */}
+        <div className="absolute inset-0 z-0 hidden md:block" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.96) 0%, rgba(13,13,18,0.80) 38%, rgba(13,13,18,0.10) 100%)" }} />
+
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 10% 50%, rgba(255,138,0,0.12) 0%, transparent 50%)" }} />
 
         <div className="container mx-auto px-4 relative z-10 w-full">
