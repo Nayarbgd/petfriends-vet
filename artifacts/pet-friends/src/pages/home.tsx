@@ -241,20 +241,17 @@ export default function Home() {
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden min-h-[700px] flex items-center">
-        <img
-          src={heroDogImg}
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
+        <div
+          className="absolute inset-0 z-0"
           style={{
-            objectPosition: "68% center",
-            filter: "brightness(1.18) contrast(1.22) saturate(1.55)",
-            willChange: "transform",
+            backgroundImage: `url(${heroDogImg})`,
+            backgroundSize: "52% auto",
+            backgroundPosition: "right 4% center",
+            backgroundRepeat: "no-repeat",
+            filter: "brightness(1.15) contrast(1.18) saturate(1.45)",
           }}
         />
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.92) 0%, rgba(13,13,18,0.75) 45%, rgba(13,13,18,0.25) 100%)" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.96) 0%, rgba(13,13,18,0.80) 38%, rgba(13,13,18,0.10) 100%)" }} />
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 10% 50%, rgba(255,138,0,0.12) 0%, transparent 50%)" }} />
 
         <div className="container mx-auto px-4 relative z-10 w-full">
