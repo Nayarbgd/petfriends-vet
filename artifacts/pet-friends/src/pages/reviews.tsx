@@ -114,26 +114,26 @@ export default function Reviews() {
       </section>
 
       {/* ── GOOGLE REVIEWS BUTTON ─────────────────────────────────────────── */}
-      <div className="flex justify-center pb-16 -mt-4" style={{ background: BG }}>
+      <div className="flex justify-center py-16" style={{ background: BG }}>
         <a
           href="https://www.google.com/maps/place/Pet+friends+vet+clinic/@25.059868,55.1368224,12156m/data=!3m1!1e3!4m12!1m2!2m1!1spet+friends!3m8!1s0x3e5f6dd099e14619:0x6ae651c7079beac!8m2!3d25.0653328!4d55.2167901!9m1!1b1!15sCgtwZXQgZnJpZW5kc1oNIgtwZXQgZnJpZW5kc5IBDHZldGVyaW5hcmlhbpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOcWQzWnBXREJSUlJBQuABAPoBBQiZARBH!16s%2Fg%2F11sm8yy4wp?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base text-white transition-all hover:scale-105 active:scale-95"
           style={{
-            background: "linear-gradient(135deg, #1a73e8 0%, #0d62d1 100%)",
-            boxShadow: "0 4px 28px rgba(26,115,232,0.40)",
+            background: "linear-gradient(135deg, #FF8A00 0%, #e6520a 60%, #c2185b 100%)",
+            boxShadow: "0 4px 32px rgba(255,138,0,0.45), 0 0 0 1px rgba(255,138,0,0.20)",
           }}
         >
           {/* Google G icon */}
           <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="white" fillOpacity="0.9"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="white" fillOpacity="0.85"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="white" fillOpacity="0.75"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="white" fillOpacity="0.95"/>
           </svg>
           <span>See All 1,053 Reviews on Google</span>
-          <svg className="w-4 h-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-4 h-4 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </a>

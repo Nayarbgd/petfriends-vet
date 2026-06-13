@@ -17,6 +17,7 @@ export const reviews = [
   { name: "Priya Sharma",      rating: 5, date: "February 2026", text: "We had an emergency at 2am and they were ready the moment we walked in. The team explained the diagnosis clearly and let us visit every day. Truly 24/7." },
   { name: "Khalid Al-Farsi",   rating: 4, date: "May 2026",      text: "Quick appointment, honest pricing, and the vet answered all my questions about deworming. Very professional team." },
   { name: "Jessica Wong",      rating: 5, date: "March 2026",    text: "Booked grooming for our golden retriever online — easy process, great result. He looks and smells amazing. Highly recommended for JVC residents!" },
+  { name: "Layla Al-Rashidi",  rating: 5, date: "June 2026",     text: "Brought my rabbit in for the first time and the team made us feel so welcome. The vet was thorough, gentle, and clearly loves animals. Amazing clinic in JVC!" },
 ];
 
 export const faqs = [
