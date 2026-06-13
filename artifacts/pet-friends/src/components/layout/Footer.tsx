@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 w-fit group">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Pet Friends Vet Clinic logo"
                 className="w-10 h-10 rounded-full object-cover transition-transform group-hover:scale-110"
                 style={{ boxShadow: "0 0 16px rgba(255,138,0,0.35)" }}

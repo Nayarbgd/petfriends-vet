@@ -26,7 +26,7 @@ export default function Header() {
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <img
-            src="/logo.png"
+            src="/logo.webp"
             alt="Pet Friends Vet Clinic logo"
             className="w-11 h-11 rounded-full object-cover transition-transform group-hover:scale-110"
             style={{ boxShadow: "0 0 20px rgba(255,138,0,0.45)" }}

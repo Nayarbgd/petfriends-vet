@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, Star, StarHalf, ChevronRight, X, ChevronLeft } from "lucide-react";
-import heroDogImg from "@assets/ChatGPT_Image_13_jun_2026,_09_50_23_p.m._1781373267394.png";
+import heroDogImg from "@assets/hero-dog.webp";
 import PageHead from "@/components/seo/PageHead";
 import { BG, ORANGE, PURPLE, primaryBtn, secondaryBtn, CARD_BG, CARD_BORDER, iconOrange } from "@/lib/brand";
 import { services, reviews, faqs, SITE_URL } from "@/lib/data";
@@ -40,13 +40,14 @@ const faqSchema = {
   })),
 };
 
+const CL = "https://res.cloudinary.com/djepsudop/image/upload/q_auto,f_auto,w_800";
 const clientPhotos = [
-  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378827/f3d5431e-ea6f-4d9d-828b-5960732a0974_wykok3.png", position: "center center" },
-  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378368/1c5b7d14-d587-4057-ab7d-c07361b85abd_cdemre.png", position: "center top"    },
-  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378028/8fb59bca-4fc1-41aa-a8c4-210577e38cae_l1097p.png", position: "center center" },
-  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377846/75d6b711-0498-442d-a214-815d15caf7b6_o0khy9.png", position: "center top"    },
-  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377558/43e9a7ac-b6d4-4941-952e-1d14dd6629c2_as3z6j.png", position: "center top"    },
-  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377620/d7d1907a-d537-42de-b6b6-ccc2de0132b0_qkrkng.png", position: "center center" },
+  { src: `${CL}/v1781378827/f3d5431e-ea6f-4d9d-828b-5960732a0974_wykok3.png`, position: "center center" },
+  { src: `${CL}/v1781378368/1c5b7d14-d587-4057-ab7d-c07361b85abd_cdemre.png`, position: "center top"    },
+  { src: `${CL}/v1781378028/8fb59bca-4fc1-41aa-a8c4-210577e38cae_l1097p.png`, position: "center center" },
+  { src: `${CL}/v1781377846/75d6b711-0498-442d-a214-815d15caf7b6_o0khy9.png`, position: "center top"    },
+  { src: `${CL}/v1781377558/43e9a7ac-b6d4-4941-952e-1d14dd6629c2_as3z6j.png`, position: "center top"    },
+  { src: `${CL}/v1781377620/d7d1907a-d537-42de-b6b6-ccc2de0132b0_qkrkng.png`, position: "center center" },
 ];
 
 function ClientGallery() {
