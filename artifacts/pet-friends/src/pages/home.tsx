@@ -30,7 +30,7 @@ const clientPhotos = [
   { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378368/1c5b7d14-d587-4057-ab7d-c07361b85abd_cdemre.png", position: "center top"    },
   { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781378028/8fb59bca-4fc1-41aa-a8c4-210577e38cae_l1097p.png", position: "center center" },
   { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377846/75d6b711-0498-442d-a214-815d15caf7b6_o0khy9.png", position: "center top"    },
-  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377558/43e9a7ac-b6d4-4941-952e-1d14dd6629c2_as3z6j.png", position: "center center" },
+  { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377558/43e9a7ac-b6d4-4941-952e-1d14dd6629c2_as3z6j.png", position: "center top"    },
   { src: "https://res.cloudinary.com/djepsudop/image/upload/v1781377620/d7d1907a-d537-42de-b6b6-ccc2de0132b0_qkrkng.png", position: "center center" },
 ];
 
@@ -97,6 +97,40 @@ function ClientGallery() {
               </div>
             </motion.button>
           ))}
+        </div>
+
+        {/* ── INSTAGRAM CTA ─────────────────────────────────────────────── */}
+        <div className="flex justify-center mt-12">
+          <motion.a
+            href="https://www.instagram.com/pet_friends_vet_clinic?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-3 px-7 py-4 rounded-2xl font-bold text-base text-white transition-shadow"
+            style={{
+              background: "linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%)",
+              boxShadow: "0 4px 32px rgba(253,29,29,0.35), 0 1px 0 rgba(255,255,255,0.10) inset",
+            }}
+          >
+            {/* Instagram SVG logo */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="white"
+              className="w-6 h-6 shrink-0"
+            >
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+            <span>Síguenos en Instagram</span>
+            <svg className="w-4 h-4 opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </motion.a>
         </div>
       </div>
 
