@@ -1,0 +1,119 @@
+CREATE A TRUE MULTI-PAGE WEBSITE ARCHITECTURE FOR SEO.
+
+Objective:
+Convert the current website from a single-page experience into a real multi-page website where every navigation tab has its own independent route, page component, metadata, and SEO structure.
+
+IMPORTANT:
+Do NOT change the visual design, colors, animations, branding, copy, spacing, or overall user experience.
+
+Only restructure the project architecture.
+
+Requirements:
+
+1. Every navigation item must become a real page with its own URL.
+
+Examples:
+
+/
+/services
+/about
+/our-vets
+/reviews
+/contact
+/book-appointment
+/emergency
+
+(Use the existing navigation items automatically. Do not hardcode names.)
+
+2. Create independent page files.
+
+Each page should have:
+
+• Its own React component
+• Its own route
+• Its own file
+• Its own SEO configuration
+• Its own page-level metadata
+• Its own future scalability
+
+Suggested structure:
+
+src/
+├── pages/
+│   ├── Home.jsx
+│   ├── Services.jsx
+│   ├── About.jsx
+│   ├── OurVets.jsx
+│   ├── Reviews.jsx
+│   ├── Contact.jsx
+│   ├── Emergency.jsx
+│   ├── BookAppointment.jsx
+│   └── etc.
+
+3. Implement React Router properly.
+
+Requirements:
+
+• BrowserRouter
+• Nested routes if necessary
+• No hash routing
+• Deep-link support
+• Refreshing any route must not produce 404 errors.
+
+4. Create a reusable layout system.
+
+Suggested structure:
+
+Layout
+├── Header
+├── Main Content
+├── Footer
+└── Shared Components
+
+Header and Footer must remain reusable across all pages.
+
+5. Each page must be completely independent.
+
+Every page should be capable of having:
+
+• Unique Title Tag
+• Unique Meta Description
+• Unique Open Graph Tags
+• Unique Schema Markup
+• Unique Canonical URL
+• Independent indexing rules
+• Independent future content expansion
+
+This architecture should be ready for advanced SEO implementation later.
+
+6. Preserve navigation behavior.
+
+Clicking a menu item should:
+
+• Navigate to a dedicated page.
+• Scroll to top automatically.
+• Preserve transitions and animations.
+• Feel like a professional multi-page application.
+
+7. Performance requirements:
+
+• Route-based code splitting.
+• Lazy-loaded pages.
+• Dynamic imports.
+• Shared components reused globally.
+• Clean imports.
+• No duplicated code.
+
+8. Production requirements:
+
+The website must remain:
+
+• Vite compatible
+• Vercel compatible
+• SPA refresh safe
+• Mobile responsive
+• Production ready
+
+Final objective:
+
+Transform the project into a scalable, professional, SEO-first multi-page architecture where each navigation tab is a fully independent page prepared for future SEO optimization and local landing pages, while preserving the exact same design and user experience.
