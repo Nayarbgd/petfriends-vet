@@ -249,23 +249,20 @@ export default function Home() {
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden min-h-[700px] flex items-center" style={{ background: BG }}>
 
-        {/* Full-bleed dog image anchored to the right */}
+        {/* Full-bleed hero image — covers the entire section */}
         <div className="absolute inset-0 z-0">
-          {/* Container takes the right 58% of the hero */}
-          <div className="absolute right-0 top-0 bottom-0 w-[58%]">
-            <img
-              src="/hero-dog-new.png"
-              alt=""
-              aria-hidden="true"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "55% center" }}
-            />
-          </div>
-          {/* Gradient: solid dark on the left → transparent on the right */}
+          <img
+            src="/hero-dog-new.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "65% center" }}
+          />
+          {/* Dark gradient on the left so text stays readable, fades to transparent on the right */}
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to right, #0F1018 38%, rgba(15,16,24,0.55) 56%, rgba(15,16,24,0.05) 100%)",
+              background: "linear-gradient(to right, rgba(15,16,24,0.95) 0%, rgba(15,16,24,0.80) 35%, rgba(15,16,24,0.30) 60%, rgba(15,16,24,0.05) 100%)",
             }}
           />
         </div>
