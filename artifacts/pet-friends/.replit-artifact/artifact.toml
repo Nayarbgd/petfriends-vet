@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Pet Friends Vet Clinic"
+version = "1.0.0"
+id = "artifacts/pet-friends"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20852
+
+[services.development]
+run = "pnpm --filter @workspace/pet-friends run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pet-friends", "run", "build" ]
+publicDir = "artifacts/pet-friends/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20852"
+BASE_PATH = "/"

@@ -5,7 +5,9 @@
  * Pet Friends Vet Clinic API
  * OpenAPI spec version: 0.1.0
  */
+import type { ServiceCount } from './serviceCount';
 
-export interface HealthStatus {
-  status: string;
+export interface AppointmentStats {
+  total: number;
+  byService: ServiceCount[];
 }

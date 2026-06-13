@@ -3,13 +3,15 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Pet Friends Vet Clinic API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: appointments
+    description: Appointment booking operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,61 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /appointments:
+    post:
+      operationId: createAppointment
+      tags: [appointments]
+      summary: Book an appointment
+      description: Submit a new appointment booking request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppointmentInput"
+      responses:
+        "201":
+          description: Appointment booked successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Appointment"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    get:
+      operationId: listAppointments
+      tags: [appointments]
+      summary: List all appointments (admin)
+      description: Returns all submitted appointment requests
+      responses:
+        "200":
+          description: List of appointments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Appointment"
+
+  /appointments/stats:
+    get:
+      operationId: getAppointmentStats
+      tags: [appointments]
+      summary: Get appointment statistics
+      description: Returns booking counts by service type
+      responses:
+        "200":
+          description: Appointment statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppointmentStats"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +91,103 @@ components:
       required:
         - status
 
+    AppointmentInput:
+      type: object
+      required:
+        - name
+        - phone
+        - petType
+        - service
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: Pet owner full name
+        phone:
+          type: string
+          minLength: 1
+          description: Contact phone number
+        email:
+          type: ["string", "null"]
+          description: Contact email address
+        petType:
+          type: string
+          minLength: 1
+          description: Type of pet (e.g., Dog, Cat)
+        service:
+          type: string
+          enum: [checkup, vaccination, grooming, emergency, deworming, castration, other]
+          description: Requested service
+        preferredDate:
+          type: ["string", "null"]
+          description: Preferred appointment date/time
+        notes:
+          type: ["string", "null"]
+          description: Additional notes or questions
+        honeypot:
+          type: ["string", "null"]
+          description: Spam protection field (should be empty)
+
+    Appointment:
+      type: object
+      required:
+        - id
+        - name
+        - phone
+        - petType
+        - service
+        - status
+        - createdAt
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: ["string", "null"]
+        petType:
+          type: string
+        service:
+          type: string
+        preferredDate:
+          type: ["string", "null"]
+        notes:
+          type: ["string", "null"]
+        status:
+          type: string
+        createdAt:
+          type: string
+
+    AppointmentStats:
+      type: object
+      required:
+        - total
+        - byService
+      properties:
+        total:
+          type: integer
+        byService:
+          type: array
+          items:
+            $ref: "#/components/schemas/ServiceCount"
+
+    ServiceCount:
+      type: object
+      required:
+        - service
+        - count
+      properties:
+        service:
+          type: string
+        count:
+          type: integer
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
