@@ -1,0 +1,82 @@
+Redesign the website color system to match the Pet Friends Instagram branding.
+
+The current website is too dark and uses almost pure black backgrounds. The Instagram identity is much more vibrant, friendly and recognizable, with a combination of orange and purple gradients.
+
+Brand direction:
+
+Primary Orange: #FF8A00
+Primary Purple: #7B4AE2
+Dark Background: #0D0D12
+Card Background: #15151D
+Soft Glow Orange: rgba(255,138,0,0.18)
+Soft Glow Purple: rgba(123,74,226,0.18)
+
+Goals:
+
+1. Keep the premium look, but make the site feel warmer, friendlier and more modern.
+
+2. Replace completely black sections (#000000) with very dark charcoal (#0D0D12) and subtle gradients.
+
+3. Add soft radial glows behind hero sections:
+
+* orange glow on the left
+* purple glow on the right
+* opacity between 12% and 18%.
+
+4. Buttons:
+   Primary CTA:
+   background: linear-gradient(135deg,#FF8A00,#FFB347)
+   text: #111111
+   large soft orange shadow.
+
+Secondary CTA:
+background: rgba(123,74,226,0.15)
+border: 1px solid rgba(123,74,226,0.35)
+text: white.
+
+5. Header:
+   Keep it dark, but add a subtle orange-to-purple gradient overlay:
+   background:
+   linear-gradient(
+   90deg,
+   rgba(255,138,0,0.08),
+   rgba(123,74,226,0.08)
+   );
+
+6. Cards:
+   Use dark cards (#15151D) with:
+   border: 1px solid rgba(255,255,255,0.06)
+   box-shadow:
+   0 8px 40px rgba(123,74,226,0.10);
+
+On hover:
+translateY(-4px)
+increase glow slightly.
+
+7. Replace all orange-only accents with a balanced orange + purple system:
+
+* section labels
+* active navigation items
+* icons
+* badges
+* emergency pills
+* ratings
+* decorative glows.
+
+8. Hero image placeholders:
+   Apply a subtle orange-to-purple cinematic overlay:
+   background:
+   linear-gradient(
+   135deg,
+   rgba(255,138,0,0.15),
+   rgba(123,74,226,0.15)
+   );
+
+9. Mobile:
+   Maintain exactly the same branding and gradients on mobile. Do not simplify to plain black.
+
+The final feeling should be:
+"Modern veterinary brand, premium but friendly, inspired directly by the Pet Friends Instagram identity."
+
+Reference:
+The Instagram profile uses orange and purple as its core visual identity. The website should immediately feel like the same brand when moving from Instagram to the website.
