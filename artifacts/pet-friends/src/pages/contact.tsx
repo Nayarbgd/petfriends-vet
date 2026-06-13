@@ -104,14 +104,13 @@ export default function Contact() {
           <h2 className="text-2xl font-poppins font-bold mb-6 text-center">Find Us in JVC, Dubai</h2>
           <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl" style={{ border: "1px solid rgba(255,138,0,0.15)", boxShadow: "0 8px 48px rgba(123,74,226,0.12)" }}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.4887219743545!2d55.20612587600347!3d25.059891140483856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6d3a3b2f8e7d%3A0x123456789abcdef!2sJumeirah+Village+Circle%2C+Dubai!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.8956341!2d55.2142050!3d25.0653328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6dd099e14619%3A0x6ae651c7079beac!2sPet%20Friends%20Vet%20Clinic!5e0!3m2!1sen!2sae!4v1750000000000!5m2!1sen!2sae"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale opacity-80"
               title="Pet Friends Vet Clinic location map"
             />
           </div>
