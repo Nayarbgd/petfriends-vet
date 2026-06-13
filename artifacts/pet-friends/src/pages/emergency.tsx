@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Phone, Clock, CheckCircle2, AlertTriangle, MessageCircle, MapPin,
   ChevronDown, Heart, Droplets, Zap, Thermometer, Eye, X, ShieldAlert,
+  Leaf, Package, HelpCircle, Car,
 } from "lucide-react";
 import PageHead from "@/components/seo/PageHead";
 import { BG, ORANGE, PURPLE, primaryBtn, secondaryBtn, CARD_BG, CARD_BORDER, iconOrange, iconPurple } from "@/lib/brand";
@@ -33,6 +34,11 @@ const faqSchema = {
     { "@type": "Question", name: "What should I do first in a pet emergency?", acceptedAnswer: { "@type": "Answer", text: "Stay calm, call the clinic at +971 52 739 4636 so the team can prepare, keep your pet still and warm, and head straight to Sobha Daffodil, JVC. Do not give human medications." } },
     { "@type": "Question", name: "Is Pet Friends Vet Clinic open 24 hours?", acceptedAnswer: { "@type": "Answer", text: "Yes. Pet Friends Vet Clinic provides 24/7 emergency care in JVC, Dubai. No appointment is needed — walk in at any hour." } },
     { "@type": "Question", name: "What foods are toxic to dogs and cats?", acceptedAnswer: { "@type": "Answer", text: "Toxic foods for pets include chocolate, grapes, raisins, onions, garlic, xylitol (in sugar-free products), avocado, macadamia nuts, and alcohol. If your pet has ingested any of these, call us immediately." } },
+    { "@type": "Question", name: "What plants are toxic to dogs and cats?", acceptedAnswer: { "@type": "Answer", text: "Common houseplants toxic to pets include lilies (fatal to cats), sago palm, oleander, dieffenbachia, pothos, aloe vera, and azaleas. If your pet chews any of these, call +971 52 739 4636 immediately." } },
+    { "@type": "Question", name: "What should I have in a pet emergency kit?", acceptedAnswer: { "@type": "Answer", text: "A home pet emergency kit should include gauze bandages, medical tape, antiseptic wipes, a digital thermometer, a muzzle or soft cloth, a blanket, a pet carrier, a copy of your vet's records, and the emergency number +971 52 739 4636 saved in your phone." } },
+    { "@type": "Question", name: "How do I know if my pet needs emergency care or can wait?", acceptedAnswer: { "@type": "Answer", text: "Go to emergency immediately if your pet is: not breathing, unconscious, bleeding heavily, having seizures, unable to stand, or suspected of poisoning. If your pet is lethargic, mildly vomiting once, or has a minor cut, you can call us for guidance to decide if it can wait for a scheduled visit." } },
+    { "@type": "Question", name: "How do I safely transport an injured pet?", acceptedAnswer: { "@type": "Answer", text: "For small pets, place them in a carrier lined with a towel. For larger dogs, use a flat board or blanket as a stretcher — move them with minimal bending of the spine. Keep them warm and as still as possible. Call +971 52 739 4636 while en route so we can prepare." } },
+    { "@type": "Question", name: "How do I perform CPR on a dog or cat?", acceptedAnswer: { "@type": "Answer", text: "Check for breathing and pulse first. For dogs: place hands over the heart (behind front left leg) and compress 1/3 of chest depth at 100–120 compressions per minute, with 2 rescue breaths every 30 compressions. For cats: use 2 fingers, compress at 120–140/min. Always call us immediately when performing CPR." } },
   ],
 };
 
@@ -161,6 +167,83 @@ const emergencyTypes = [
       "Keep the area calm and dimly lit to reduce stimulation",
       "Cover the eye loosely with a damp, clean cloth during transport",
       "Eye emergencies require immediate vet care — vision can be permanently lost within hours",
+    ],
+  },
+];
+
+const toxicPlants = [
+  { item: "Lily (all varieties)", risk: "Extremely fatal to cats — even licking pollen causes acute kidney failure", who: "Cats" },
+  { item: "Sago Palm", risk: "All parts are toxic — causes liver failure and can be fatal within 24 hours", who: "Dogs & Cats" },
+  { item: "Oleander", risk: "Affects the heart — causes severe cardiac arrhythmia and can be fatal", who: "Dogs & Cats" },
+  { item: "Dieffenbachia", risk: "Causes intense burning and swelling of mouth, tongue, and throat", who: "Dogs & Cats" },
+  { item: "Pothos / Golden Pothos", risk: "Oral irritation, excessive drooling, vomiting and difficulty swallowing", who: "Dogs & Cats" },
+  { item: "Aloe Vera", risk: "Despite being medicinal for humans, causes vomiting and diarrhea in pets", who: "Dogs & Cats" },
+  { item: "Azalea / Rhododendron", risk: "Even a few leaves cause vomiting, low blood pressure and coma", who: "Dogs & Cats" },
+  { item: "ZZ Plant", risk: "All parts contain calcium oxalate — causes oral pain and digestive upset", who: "Dogs & Cats" },
+];
+
+const emergencyKit = [
+  { item: "Gauze bandages & medical tape", desc: "For wrapping wounds or securing dressings — never use human adhesive bandages on fur" },
+  { item: "Antiseptic wipes or saline solution", desc: "For cleaning cuts and wounds before transport to the vet" },
+  { item: "Digital rectal thermometer", desc: "Normal temp for dogs is 38–39°C, for cats 38–39.2°C — fever above 39.5°C needs attention" },
+  { item: "Soft muzzle or cloth strip", desc: "Even gentle pets may bite when in pain — have one ready but never muzzle if vomiting" },
+  { item: "Pet carrier or flat board", desc: "For safe transport — injured pets must be moved with minimal flexing of the spine" },
+  { item: "Disposable gloves", desc: "Protect yourself from blood and fluids — always glove up before handling wounds" },
+  { item: "Hydrogen peroxide 3%", desc: "Only to induce vomiting if specifically instructed by a vet — never self-administer" },
+  { item: "Blanket or towel", desc: "To keep your pet warm and to use as an improvised stretcher for larger dogs" },
+  { item: "Copy of vaccination & medical records", desc: "Emergency vets need to know about existing conditions and recent medications" },
+  { item: "Pet Friends number saved: +971 52 739 4636", desc: "Save it now — in a real emergency every second counts" },
+];
+
+const triageGuide = [
+  {
+    label: "Go Now — Don't Wait",
+    color: "#ff4444",
+    bg: "rgba(255,68,68,0.08)",
+    border: "rgba(255,68,68,0.22)",
+    items: [
+      "Not breathing or gasping for air",
+      "Unconscious or unresponsive",
+      "Uncontrolled or severe bleeding",
+      "Seizures lasting more than 2 minutes",
+      "Suspected poisoning (any amount)",
+      "Unable to stand, walk or bear weight",
+      "Pale, white, blue or grey gums",
+      "Swollen or distended abdomen",
+      "Eye protruding from socket",
+      "Suspected broken bone after trauma",
+    ],
+  },
+  {
+    label: "Call Us First — May Be Urgent",
+    color: ORANGE,
+    bg: "rgba(255,138,0,0.08)",
+    border: "rgba(255,138,0,0.22)",
+    items: [
+      "Vomiting more than 3 times in one hour",
+      "Diarrhea with blood present",
+      "Crying or whimpering with no visible cause",
+      "Straining to urinate or producing no urine",
+      "Sudden change in behaviour or confusion",
+      "Swollen or painful limb after a fall",
+      "Coughing persistently for over 10 minutes",
+      "Not eating for more than 24 hours",
+    ],
+  },
+  {
+    label: "Book a Regular Appointment",
+    color: "#4ade80",
+    bg: "rgba(74,222,128,0.06)",
+    border: "rgba(74,222,128,0.18)",
+    items: [
+      "Single episode of mild vomiting with no blood",
+      "Occasional soft stool with no blood",
+      "Minor scratch or surface cut, not deep",
+      "Mild limping that improves with rest",
+      "Ear scratching or head shaking (no pain)",
+      "Slightly reduced appetite for 1–2 days",
+      "Routine vaccinations or deworming due",
+      "Annual health check or dental review",
     ],
   },
 ];
@@ -431,6 +514,46 @@ export default function Emergency() {
         </div>
       </section>
 
+      {/* ── TRIAGE GUIDE ──────────────────────────────────────────────────── */}
+      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(255,68,68,0.04), rgba(255,138,0,0.04)), ${BG}`, borderTop: "1px solid rgba(255,138,0,0.10)" }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,138,0,0.12)", border: "1px solid rgba(255,138,0,0.30)", color: ORANGE }}>
+              <HelpCircle className="w-4 h-4" />Emergency Triage
+            </div>
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Emergency or Can It Wait?</h2>
+            <p style={{ color: "rgba(255,255,255,0.55)" }}>
+              Not sure if it's urgent? Use this guide to decide — and when in doubt, always call us at <a href="tel:+971527394636" className="font-bold underline" style={{ color: ORANGE }}>+971 52 739 4636</a>.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {triageGuide.map((col, ci) => (
+              <motion.div
+                key={ci}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: ci * 0.1 }}
+                className="rounded-2xl overflow-hidden"
+                style={{ background: col.bg, border: `1px solid ${col.border}` }}
+              >
+                <div className="px-5 py-4 border-b" style={{ borderColor: col.border }}>
+                  <span className="font-bold text-sm" style={{ color: col.color }}>{col.label}</span>
+                </div>
+                <ul className="p-5 space-y-2">
+                  {col.items.map((item, ii) => (
+                    <li key={ii} className="flex items-start gap-2 text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: col.color }} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── TOXIC FOODS ───────────────────────────────────────────────────── */}
       <section
         className="py-24"
@@ -476,6 +599,114 @@ export default function Emergency() {
               <Phone className="w-5 h-5" />Suspected Poisoning? Call Now
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── TOXIC PLANTS ──────────────────────────────────────────────────── */}
+      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(74,222,128,0.04), rgba(123,74,226,0.05)), ${BG}`, borderTop: "1px solid rgba(74,222,128,0.12)" }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(74,222,128,0.10)", border: "1px solid rgba(74,222,128,0.25)", color: "#4ade80" }}>
+              <Leaf className="w-4 h-4" />Poison Prevention
+            </div>
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Common Houseplants Toxic to Pets</h2>
+            <p style={{ color: "rgba(255,255,255,0.55)" }}>
+              Many popular houseplants found in Dubai homes are dangerous or fatal to cats and dogs. If your pet chews any of these, call us immediately — do not wait for symptoms.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {toxicPlants.map((plant, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.05 }}
+                className="p-5 rounded-xl flex gap-4 items-start"
+                style={{ background: CARD_BG, border: CARD_BORDER }}
+              >
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(74,222,128,0.10)", color: "#4ade80" }}>
+                  <Leaf className="w-4 h-4" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-bold text-sm text-white">{plant.item}</span>
+                    <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: "rgba(255,68,68,0.12)", color: "#ff7777" }}>{plant.who}</span>
+                  </div>
+                  <div className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{plant.risk}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <a
+              href="tel:+971527394636"
+              className="inline-flex items-center gap-3 h-14 px-10 rounded-xl font-bold transition-transform hover:scale-105"
+              style={{ background: "linear-gradient(135deg, #FF8A00, #FFB347)", color: "#111", boxShadow: "0 4px 32px rgba(255,138,0,0.45)" }}
+            >
+              <Phone className="w-5 h-5" />Pet Ate a Plant? Call Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── EMERGENCY KIT ─────────────────────────────────────────────────── */}
+      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(123,74,226,0.06), rgba(255,138,0,0.04)), ${BG}`, borderTop: "1px solid rgba(123,74,226,0.12)" }}>
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(123,74,226,0.12)", border: "1px solid rgba(123,74,226,0.30)", color: PURPLE }}>
+              <Package className="w-4 h-4" />Be Prepared
+            </div>
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Pet Emergency Kit for Home</h2>
+            <p style={{ color: "rgba(255,255,255,0.55)" }}>
+              Having these items ready at home can make all the difference in the critical minutes before you reach us. Prepare your kit today.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {emergencyKit.map((kit, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -12 : 12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.05 }}
+                className="flex items-start gap-4 p-5 rounded-xl"
+                style={{ background: CARD_BG, border: "1px solid rgba(123,74,226,0.15)" }}
+              >
+                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs" style={{ background: "rgba(123,74,226,0.15)", color: PURPLE }}>
+                  {i + 1}
+                </div>
+                <div>
+                  <div className="font-bold text-sm text-white mb-1">{kit.item}</div>
+                  <div className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.52)" }}>{kit.desc}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Transport tips callout */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="mt-8 p-6 rounded-2xl flex gap-5 items-start"
+            style={{ background: "rgba(255,138,0,0.07)", border: "1px solid rgba(255,138,0,0.22)" }}
+          >
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(255,138,0,0.15)", color: ORANGE }}>
+              <Car className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="font-bold text-white mb-2">How to Safely Transport an Injured Pet</div>
+              <ul className="space-y-1.5 text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>
+                <li>• Small pets: place in a carrier lined with a soft towel — keep them contained and still</li>
+                <li>• Large dogs: use a rigid board or firm blanket as a stretcher — avoid bending the spine</li>
+                <li>• Keep the injured limb elevated and immobilised during transport</li>
+                <li>• Drive calmly and avoid sharp turns or sudden braking</li>
+                <li>• Call <a href="tel:+971527394636" className="font-bold" style={{ color: ORANGE }}>+971 52 739 4636</a> en route — we'll be ready when you arrive</li>
+              </ul>
+            </div>
+          </motion.div>
         </div>
       </section>
 
