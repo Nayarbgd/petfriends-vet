@@ -251,18 +251,34 @@ export default function Home() {
 
         {/* Full-bleed hero image — covers the entire section */}
         <div className="absolute inset-0 z-0">
+          {/* Desktop image */}
           <img
             src="/hero-dog-new.png"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover hidden md:block"
             style={{ objectPosition: "65% center" }}
           />
-          {/* Dark gradient on the left so text stays readable, fades to transparent on the right */}
+          {/* Mobile image */}
+          <img
+            src="/hero-dog-mobile.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover block md:hidden"
+            style={{ objectPosition: "center top" }}
+          />
+          {/* Desktop gradient: left→right so text on left stays readable */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden md:block"
             style={{
               background: "linear-gradient(to right, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.80) 35%, rgba(17,17,17,0.30) 60%, rgba(17,17,17,0.05) 100%)",
+            }}
+          />
+          {/* Mobile gradient: top→bottom so text at top stays readable */}
+          <div
+            className="absolute inset-0 block md:hidden"
+            style={{
+              background: "linear-gradient(to bottom, rgba(17,17,17,0.85) 0%, rgba(17,17,17,0.55) 40%, rgba(17,17,17,0.20) 70%, rgba(17,17,17,0.05) 100%)",
             }}
           />
         </div>
