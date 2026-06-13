@@ -68,18 +68,18 @@ export default function BookAppointment() {
         className="py-20 lg:py-28 relative overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 50%, rgba(255,138,0,0.12) 0%, transparent 50%), " +
-            "radial-gradient(ellipse at 80% 30%, rgba(123,74,226,0.12) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 20% 50%, rgba(255,152,0,0.12) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 80% 30%, rgba(166,94,18,0.12) 0%, transparent 50%), " +
             BG,
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.35)", color: ORANGE }}>
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style={{ background: "rgba(255,152,0,0.15)", border: "1px solid rgba(255,152,0,0.35)", color: ORANGE }}>
             Book Online
           </div>
           <h1 className="text-4xl md:text-6xl font-poppins font-extrabold mb-6">
             Book Your{" "}
-            <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347, #C77DFF)" }}>
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF9800, #D9A441)" }}>
               Appointment
             </span>
           </h1>
@@ -91,7 +91,7 @@ export default function BookAppointment() {
 
       {/* ── FORM SECTION ─────────────────────────────────────────────────── */}
       <section id="booking" className="pb-24 relative overflow-hidden" style={{ background: BG }}>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(255,138,0,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(123,74,226,0.10) 0%, transparent 50%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(255,152,0,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(166,94,18,0.10) 0%, transparent 50%)" }} />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
             <div className="lg:col-span-4">
@@ -111,7 +111,7 @@ export default function BookAppointment() {
             </div>
 
             <div className="lg:col-span-8">
-              <div className="p-6 md:p-8 rounded-2xl" style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 16px 64px rgba(123,74,226,0.18), 0 0 0 1px rgba(255,138,0,0.08)" }}>
+              <div className="p-6 md:p-8 rounded-2xl" style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 16px 64px rgba(166,94,18,0.18), 0 0 0 1px rgba(255,152,0,0.08)" }}>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <div className="hidden">

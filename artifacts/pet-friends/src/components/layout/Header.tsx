@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header
       className="sticky top-0 z-50 w-full backdrop-blur-md"
-      style={{ background: HEADER_BG, borderBottom: "1px solid rgba(255,138,0,0.15)" }}
+      style={{ background: HEADER_BG, borderBottom: "1px solid rgba(255,152,0,0.15)" }}
     >
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
@@ -29,7 +29,7 @@ export default function Header() {
             src="/logo.webp"
             alt="Pet Friends Vet Clinic logo"
             className="w-11 h-11 rounded-full object-cover transition-transform group-hover:scale-110"
-            style={{ boxShadow: "0 0 20px rgba(255,138,0,0.45)" }}
+            style={{ boxShadow: "0 0 20px rgba(255,152,0,0.45)" }}
           />
           <span className="font-poppins font-bold text-xl tracking-tight hidden sm:block text-white">
             Pet Friends
@@ -79,7 +79,7 @@ export default function Header() {
       {mobileOpen && (
         <div
           className="md:hidden absolute top-20 left-0 w-full p-4 flex flex-col gap-3 shadow-2xl"
-          style={{ background: "rgba(15,16,24,0.97)", borderBottom: "1px solid rgba(255,138,0,0.12)" }}
+          style={{ background: "rgba(17,17,17,0.97)", borderBottom: "1px solid rgba(255,152,0,0.12)" }}
         >
           {navLinks.map((link) => (
             <Link

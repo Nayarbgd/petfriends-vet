@@ -98,8 +98,8 @@ const emergencyTypes = [
     icon: <Zap className="w-6 h-6" />,
     title: "Seizures",
     color: PURPLE,
-    bg: "rgba(123,74,226,0.10)",
-    border: "rgba(123,74,226,0.25)",
+    bg: "rgba(166,94,18,0.10)",
+    border: "rgba(166,94,18,0.25)",
     steps: [
       "Stay calm — do NOT put anything in your pet's mouth (they cannot swallow their tongue)",
       "Move furniture and objects away to prevent injury during the seizure",
@@ -113,8 +113,8 @@ const emergencyTypes = [
     icon: <ShieldAlert className="w-6 h-6" />,
     title: "Suspected Poisoning",
     color: ORANGE,
-    bg: "rgba(255,138,0,0.10)",
-    border: "rgba(255,138,0,0.25)",
+    bg: "rgba(255,152,0,0.10)",
+    border: "rgba(255,152,0,0.25)",
     steps: [
       "Call us immediately — do not wait for symptoms to appear",
       "Note what your pet ate, the quantity, and the time of ingestion",
@@ -143,8 +143,8 @@ const emergencyTypes = [
     icon: <Thermometer className="w-6 h-6" />,
     title: "Heat Stroke",
     color: ORANGE,
-    bg: "rgba(255,138,0,0.10)",
-    border: "rgba(255,138,0,0.25)",
+    bg: "rgba(255,152,0,0.10)",
+    border: "rgba(255,152,0,0.25)",
     steps: [
       "Move your pet immediately to a cool, shaded area or air-conditioned space",
       "Apply cool (not ice cold) water to their paws, armpits, and neck",
@@ -158,8 +158,8 @@ const emergencyTypes = [
     icon: <Eye className="w-6 h-6" />,
     title: "Eye Injuries",
     color: PURPLE,
-    bg: "rgba(123,74,226,0.10)",
-    border: "rgba(123,74,226,0.25)",
+    bg: "rgba(166,94,18,0.10)",
+    border: "rgba(166,94,18,0.25)",
     steps: [
       "Prevent your pet from rubbing or scratching the eye — use an e-collar if available",
       "Do NOT touch or attempt to remove any foreign object embedded in the eye",
@@ -217,8 +217,8 @@ const triageGuide = [
   {
     label: "Call Us First — May Be Urgent",
     color: ORANGE,
-    bg: "rgba(255,138,0,0.08)",
-    border: "rgba(255,138,0,0.22)",
+    bg: "rgba(255,152,0,0.08)",
+    border: "rgba(255,152,0,0.22)",
     items: [
       "Vomiting more than 3 times in one hour",
       "Diarrhea with blood present",
@@ -321,7 +321,7 @@ export default function Emergency() {
         style={{
           background:
             "radial-gradient(ellipse at 20% 50%, rgba(255,60,60,0.18) 0%, transparent 50%), " +
-            "radial-gradient(ellipse at 80% 30%, rgba(255,138,0,0.18) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 80% 30%, rgba(255,152,0,0.18) 0%, transparent 50%), " +
             BG,
           borderBottom: "1px solid rgba(255,60,60,0.15)",
         }}
@@ -339,7 +339,7 @@ export default function Emergency() {
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-extrabold mb-6 leading-tight">
             Emergency?{" "}
-            <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347)" }}>
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF9800, #D9A441)" }}>
               We're Always Ready.
             </span>
           </h1>
@@ -350,7 +350,7 @@ export default function Emergency() {
             <a
               href="tel:+971527394636"
               className="w-full sm:w-auto h-16 px-12 rounded-xl text-lg flex items-center justify-center gap-3 transition-transform hover:scale-105 font-bold"
-              style={{ background: "linear-gradient(135deg, #FF8A00, #FFB347)", color: "#111", boxShadow: "0 4px 40px rgba(255,138,0,0.60)" }}
+              style={{ background: "linear-gradient(135deg, #FF9800, #D9A441)", color: "#111", boxShadow: "0 4px 40px rgba(255,152,0,0.60)" }}
             >
               <Phone className="w-6 h-6" />Call Now: +971 52 739 4636
             </a>
@@ -370,7 +370,7 @@ export default function Emergency() {
       {/* ── ALWAYS OPEN STRIP ─────────────────────────────────────────────── */}
       <section
         className="py-6"
-        style={{ background: "linear-gradient(90deg, rgba(255,138,0,0.12), rgba(123,74,226,0.12))", borderBottom: "1px solid rgba(255,138,0,0.20)" }}
+        style={{ background: "linear-gradient(90deg, rgba(255,152,0,0.12), rgba(166,94,18,0.12))", borderBottom: "1px solid rgba(255,152,0,0.20)" }}
       >
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
           <div className="flex items-center gap-3">
@@ -394,7 +394,7 @@ export default function Emergency() {
       <section className="py-24" style={{ background: BG }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.35)", color: ORANGE }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,152,0,0.15)", border: "1px solid rgba(255,152,0,0.35)", color: ORANGE }}>
               Immediate Action
             </div>
             <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4">First 3 Things To Do</h2>
@@ -426,10 +426,10 @@ export default function Emergency() {
       </section>
 
       {/* ── FIRST AID BY EMERGENCY TYPE ───────────────────────────────────── */}
-      <section className="py-24" style={{ background: `linear-gradient(180deg, rgba(123,74,226,0.05), transparent), ${BG}`, borderTop: "1px solid rgba(123,74,226,0.12)" }}>
+      <section className="py-24" style={{ background: `linear-gradient(180deg, rgba(166,94,18,0.05), transparent), ${BG}`, borderTop: "1px solid rgba(166,94,18,0.12)" }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(123,74,226,0.15)", border: "1px solid rgba(123,74,226,0.35)", color: PURPLE }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(166,94,18,0.15)", border: "1px solid rgba(166,94,18,0.35)", color: PURPLE }}>
               First Aid Guide
             </div>
             <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-4">What To Do by Emergency Type</h2>
@@ -451,7 +451,7 @@ export default function Emergency() {
       {/* ── WARNING SIGNS ─────────────────────────────────────────────────── */}
       <section
         className="py-24"
-        style={{ background: `linear-gradient(135deg, rgba(255,60,60,0.06), rgba(255,138,0,0.06)), ${BG}`, borderTop: "1px solid rgba(255,60,60,0.12)" }}
+        style={{ background: `linear-gradient(135deg, rgba(255,60,60,0.06), rgba(255,152,0,0.06)), ${BG}`, borderTop: "1px solid rgba(255,60,60,0.12)" }}
       >
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -484,10 +484,10 @@ export default function Emergency() {
       </section>
 
       {/* ── DO NOT DO ─────────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ background: BG, borderTop: "1px solid rgba(255,138,0,0.10)" }}>
+      <section className="py-24" style={{ background: BG, borderTop: "1px solid rgba(255,152,0,0.10)" }}>
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center mb-12">
-            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,138,0,0.12)", border: "1px solid rgba(255,138,0,0.30)", color: ORANGE }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,152,0,0.12)", border: "1px solid rgba(255,152,0,0.30)", color: ORANGE }}>
               Critical Mistakes
             </div>
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">What NOT To Do in a Pet Emergency</h2>
@@ -502,7 +502,7 @@ export default function Emergency() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.06 }}
                 className="flex items-start gap-4 p-5 rounded-xl"
-                style={{ background: CARD_BG, border: "1px solid rgba(255,138,0,0.18)" }}
+                style={{ background: CARD_BG, border: "1px solid rgba(255,152,0,0.18)" }}
               >
                 <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(255,68,68,0.15)" }}>
                   <X className="w-4 h-4" style={{ color: "#ff4444" }} />
@@ -515,10 +515,10 @@ export default function Emergency() {
       </section>
 
       {/* ── TRIAGE GUIDE ──────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(255,68,68,0.04), rgba(255,138,0,0.04)), ${BG}`, borderTop: "1px solid rgba(255,138,0,0.10)" }}>
+      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(255,68,68,0.04), rgba(255,152,0,0.04)), ${BG}`, borderTop: "1px solid rgba(255,152,0,0.10)" }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,138,0,0.12)", border: "1px solid rgba(255,138,0,0.30)", color: ORANGE }}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(255,152,0,0.12)", border: "1px solid rgba(255,152,0,0.30)", color: ORANGE }}>
               <HelpCircle className="w-4 h-4" />Emergency Triage
             </div>
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Emergency or Can It Wait?</h2>
@@ -557,11 +557,11 @@ export default function Emergency() {
       {/* ── TOXIC FOODS ───────────────────────────────────────────────────── */}
       <section
         className="py-24"
-        style={{ background: `linear-gradient(135deg, rgba(255,60,60,0.05), rgba(123,74,226,0.05)), ${BG}`, borderTop: "1px solid rgba(123,74,226,0.12)" }}
+        style={{ background: `linear-gradient(135deg, rgba(255,60,60,0.05), rgba(166,94,18,0.05)), ${BG}`, borderTop: "1px solid rgba(166,94,18,0.12)" }}
       >
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(123,74,226,0.15)", border: "1px solid rgba(123,74,226,0.35)", color: PURPLE }}>
+            <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(166,94,18,0.15)", border: "1px solid rgba(166,94,18,0.35)", color: PURPLE }}>
               Poison Prevention
             </div>
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Common Foods Toxic to Pets</h2>
@@ -594,7 +594,7 @@ export default function Emergency() {
             <a
               href="tel:+971527394636"
               className="inline-flex items-center gap-3 h-14 px-10 rounded-xl font-bold transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #FF8A00, #FFB347)", color: "#111", boxShadow: "0 4px 32px rgba(255,138,0,0.45)" }}
+              style={{ background: "linear-gradient(135deg, #FF9800, #D9A441)", color: "#111", boxShadow: "0 4px 32px rgba(255,152,0,0.45)" }}
             >
               <Phone className="w-5 h-5" />Suspected Poisoning? Call Now
             </a>
@@ -603,7 +603,7 @@ export default function Emergency() {
       </section>
 
       {/* ── TOXIC PLANTS ──────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(74,222,128,0.04), rgba(123,74,226,0.05)), ${BG}`, borderTop: "1px solid rgba(74,222,128,0.12)" }}>
+      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(74,222,128,0.04), rgba(166,94,18,0.05)), ${BG}`, borderTop: "1px solid rgba(74,222,128,0.12)" }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(74,222,128,0.10)", border: "1px solid rgba(74,222,128,0.25)", color: "#4ade80" }}>
@@ -642,7 +642,7 @@ export default function Emergency() {
             <a
               href="tel:+971527394636"
               className="inline-flex items-center gap-3 h-14 px-10 rounded-xl font-bold transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #FF8A00, #FFB347)", color: "#111", boxShadow: "0 4px 32px rgba(255,138,0,0.45)" }}
+              style={{ background: "linear-gradient(135deg, #FF9800, #D9A441)", color: "#111", boxShadow: "0 4px 32px rgba(255,152,0,0.45)" }}
             >
               <Phone className="w-5 h-5" />Pet Ate a Plant? Call Now
             </a>
@@ -651,10 +651,10 @@ export default function Emergency() {
       </section>
 
       {/* ── EMERGENCY KIT ─────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(123,74,226,0.06), rgba(255,138,0,0.04)), ${BG}`, borderTop: "1px solid rgba(123,74,226,0.12)" }}>
+      <section className="py-24" style={{ background: `linear-gradient(135deg, rgba(166,94,18,0.06), rgba(255,152,0,0.04)), ${BG}`, borderTop: "1px solid rgba(166,94,18,0.12)" }}>
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(123,74,226,0.12)", border: "1px solid rgba(123,74,226,0.30)", color: PURPLE }}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background: "rgba(166,94,18,0.12)", border: "1px solid rgba(166,94,18,0.30)", color: PURPLE }}>
               <Package className="w-4 h-4" />Be Prepared
             </div>
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Pet Emergency Kit for Home</h2>
@@ -671,9 +671,9 @@ export default function Emergency() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
                 className="flex items-start gap-4 p-5 rounded-xl"
-                style={{ background: CARD_BG, border: "1px solid rgba(123,74,226,0.15)" }}
+                style={{ background: CARD_BG, border: "1px solid rgba(166,94,18,0.15)" }}
               >
-                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs" style={{ background: "rgba(123,74,226,0.15)", color: PURPLE }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs" style={{ background: "rgba(166,94,18,0.15)", color: PURPLE }}>
                   {i + 1}
                 </div>
                 <div>
@@ -691,9 +691,9 @@ export default function Emergency() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
             className="mt-8 p-6 rounded-2xl flex gap-5 items-start"
-            style={{ background: "rgba(255,138,0,0.07)", border: "1px solid rgba(255,138,0,0.22)" }}
+            style={{ background: "rgba(255,152,0,0.07)", border: "1px solid rgba(255,152,0,0.22)" }}
           >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(255,138,0,0.15)", color: ORANGE }}>
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(255,152,0,0.15)", color: ORANGE }}>
               <Car className="w-6 h-6" />
             </div>
             <div>
@@ -713,7 +713,7 @@ export default function Emergency() {
       {/* ── EMERGENCY CTA ─────────────────────────────────────────────────── */}
       <section
         className="py-28 text-center relative overflow-hidden"
-        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(255,138,0,0.16) 0%, transparent 60%), #0F1018", borderTop: "1px solid rgba(255,138,0,0.20)" }}
+        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(255,152,0,0.16) 0%, transparent 60%), #111111", borderTop: "1px solid rgba(255,152,0,0.20)" }}
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-poppins font-bold mb-4">Your Pet Can't Wait.</h2>
@@ -724,7 +724,7 @@ export default function Emergency() {
             <a
               href="tel:+971527394636"
               className="inline-flex items-center gap-3 h-16 px-12 rounded-xl text-lg font-bold transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #FF8A00, #FFB347)", color: "#111", boxShadow: "0 4px 40px rgba(255,138,0,0.55)" }}
+              style={{ background: "linear-gradient(135deg, #FF9800, #D9A441)", color: "#111", boxShadow: "0 4px 40px rgba(255,152,0,0.55)" }}
             >
               <Phone className="w-6 h-6" />+971 52 739 4636 · Call Now
             </a>

@@ -17,8 +17,8 @@ export default function Footer() {
     <footer
       className="py-16"
       style={{
-        background: `linear-gradient(180deg, rgba(255,138,0,0.06), rgba(123,74,226,0.06)), #0F1018`,
-        borderTop: "1px solid rgba(255,138,0,0.15)",
+        background: `linear-gradient(180deg, rgba(255,152,0,0.06), rgba(166,94,18,0.06)), #111111`,
+        borderTop: "1px solid rgba(255,152,0,0.15)",
       }}
     >
       <div className="container mx-auto px-4">
@@ -29,7 +29,7 @@ export default function Footer() {
                 src="/logo.webp"
                 alt="Pet Friends Vet Clinic logo"
                 className="w-10 h-10 rounded-full object-cover transition-transform group-hover:scale-110"
-                style={{ boxShadow: "0 0 16px rgba(255,138,0,0.35)" }}
+                style={{ boxShadow: "0 0 16px rgba(255,152,0,0.35)" }}
               />
               <span className="font-poppins font-bold text-xl tracking-tight text-white">Pet Friends</span>
             </Link>

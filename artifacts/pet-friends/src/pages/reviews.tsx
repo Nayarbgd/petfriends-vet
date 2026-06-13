@@ -40,18 +40,18 @@ export default function Reviews() {
         className="py-24 lg:py-32 relative overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse at 30% 50%, rgba(255,138,0,0.12) 0%, transparent 50%), " +
-            "radial-gradient(ellipse at 70% 30%, rgba(123,74,226,0.12) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 30% 50%, rgba(255,152,0,0.12) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 70% 30%, rgba(166,94,18,0.12) 0%, transparent 50%), " +
             BG,
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.35)", color: ORANGE }}>
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6" style={{ background: "rgba(255,152,0,0.15)", border: "1px solid rgba(255,152,0,0.35)", color: ORANGE }}>
             Client Reviews
           </div>
           <h1 className="text-4xl md:text-6xl font-poppins font-extrabold mb-6">
             What Pet Parents{" "}
-            <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347, #C77DFF)" }}>
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF9800, #D9A441)" }}>
               Are Saying
             </span>
           </h1>
@@ -72,7 +72,7 @@ export default function Reviews() {
 
       {/* ── REVIEWS GRID ─────────────────────────────────────────────────── */}
       <section className="pb-24 relative" style={{ background: BG }}>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(123,74,226,0.10) 0%, transparent 55%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(166,94,18,0.10) 0%, transparent 55%)" }} />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
@@ -83,14 +83,14 @@ export default function Reviews() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="p-6 rounded-2xl"
-                style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 4px 24px rgba(123,74,226,0.08)" }}
+                style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 4px 24px rgba(166,94,18,0.08)" }}
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
                     style={{
-                      background: i % 2 === 0 ? "rgba(255,138,0,0.18)" : "rgba(123,74,226,0.18)",
-                      border: `1px solid ${i % 2 === 0 ? "rgba(255,138,0,0.40)" : "rgba(123,74,226,0.40)"}`,
+                      background: i % 2 === 0 ? "rgba(255,152,0,0.18)" : "rgba(166,94,18,0.18)",
+                      border: `1px solid ${i % 2 === 0 ? "rgba(255,152,0,0.40)" : "rgba(166,94,18,0.40)"}`,
                       color: i % 2 === 0 ? ORANGE : PURPLE,
                     }}
                   >
@@ -121,8 +121,8 @@ export default function Reviews() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base text-white transition-all hover:scale-105 active:scale-95"
           style={{
-            background: "linear-gradient(135deg, #FF8A00 0%, #e6520a 60%, #c2185b 100%)",
-            boxShadow: "0 4px 32px rgba(255,138,0,0.45), 0 0 0 1px rgba(255,138,0,0.20)",
+            background: "linear-gradient(135deg, #FF9800 0%, #e6520a 60%, #c2185b 100%)",
+            boxShadow: "0 4px 32px rgba(255,152,0,0.45), 0 0 0 1px rgba(255,152,0,0.20)",
           }}
         >
           {/* Google G icon */}
@@ -140,7 +140,7 @@ export default function Reviews() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-20 text-center" style={{ background: `linear-gradient(135deg, rgba(255,138,0,0.08), rgba(123,74,226,0.08)), ${BG}`, borderTop: "1px solid rgba(255,138,0,0.15)" }}>
+      <section className="py-20 text-center" style={{ background: `linear-gradient(135deg, rgba(255,152,0,0.08), rgba(166,94,18,0.08)), ${BG}`, borderTop: "1px solid rgba(255,152,0,0.15)" }}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Join Our Happy Pet Family</h2>
           <p className="mb-8 text-lg" style={{ color: "rgba(255,255,255,0.55)" }}>Experience the difference — book your first visit today.</p>

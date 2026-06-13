@@ -14,15 +14,15 @@ function ScrollToTop() {
 
 function PageLoader() {
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: "#0F1018" }}>
-      <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: "#FF8A00", borderTopColor: "transparent" }} />
+    <div className="min-h-screen flex items-center justify-center" style={{ background: "#111111" }}>
+      <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: "#FF9800", borderTopColor: "transparent" }} />
     </div>
   );
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen text-white flex flex-col font-sans" style={{ background: "#0F1018" }}>
+    <div className="min-h-screen text-white flex flex-col font-sans" style={{ background: "#111111" }}>
       <ScrollToTop />
       <Header />
       <main className="flex-1">

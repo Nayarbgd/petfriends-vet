@@ -27,15 +27,15 @@ export default function About() {
         className="py-24 lg:py-32 relative overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 50%, rgba(123,74,226,0.14) 0%, transparent 50%), " +
-            "radial-gradient(ellipse at 80% 30%, rgba(255,138,0,0.14) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 20% 50%, rgba(166,94,18,0.14) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 80% 30%, rgba(255,152,0,0.14) 0%, transparent 50%), " +
             BG,
         }}
       >
         <div className="container mx-auto px-4 text-center">
           <div
             className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-            style={{ background: "rgba(123,74,226,0.15)", border: "1px solid rgba(123,74,226,0.40)", color: PURPLE }}
+            style={{ background: "rgba(166,94,18,0.15)", border: "1px solid rgba(166,94,18,0.40)", color: PURPLE }}
           >
             Our Story
           </div>
@@ -43,7 +43,7 @@ export default function About() {
             More Than a Clinic,{" "}
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347, #C77DFF)" }}
+              style={{ backgroundImage: "linear-gradient(135deg, #FF9800, #D9A441)" }}
             >
               a Second Home
             </span>
@@ -59,32 +59,32 @@ export default function About() {
         id="team"
         className="py-24 relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, rgba(255,138,0,0.06), rgba(123,74,226,0.08)), ${BG}`,
-          borderTop: "1px solid rgba(255,138,0,0.12)",
-          borderBottom: "1px solid rgba(123,74,226,0.12)",
+          background: `linear-gradient(135deg, rgba(255,152,0,0.06), rgba(166,94,18,0.08)), ${BG}`,
+          borderTop: "1px solid rgba(255,152,0,0.12)",
+          borderBottom: "1px solid rgba(166,94,18,0.12)",
         }}
       >
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full blur-[200px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(123,74,226,0.18) 0%, transparent 65%)" }} />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,138,0,0.14) 0%, transparent 65%)" }} />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full blur-[200px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(166,94,18,0.18) 0%, transparent 65%)" }} />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,152,0,0.14) 0%, transparent 65%)" }} />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-[500px]">
-              <div className="absolute inset-0 rounded-2xl overflow-hidden" style={{ boxShadow: "0 0 48px rgba(123,74,226,0.18)" }}>
+              <div className="absolute inset-0 rounded-2xl overflow-hidden" style={{ boxShadow: "0 0 48px rgba(166,94,18,0.18)" }}>
                 <img
                   src="/team.jpg"
                   alt="Pet Friends Vet Clinic team — friendly staff in scrubs at JVC Dubai"
                   className="w-full h-full object-cover object-center"
                   style={{ filter: "brightness(1.05) contrast(1.05)" }}
                 />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 55%, rgba(15,16,24,0.55) 100%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 55%, rgba(17,17,17,0.55) 100%)" }} />
               </div>
               <div
                 className="absolute -bottom-6 -right-6 p-6 rounded-2xl shadow-2xl max-w-[250px]"
                 style={{
-                  background: "linear-gradient(135deg, rgba(255,138,0,0.15), rgba(123,74,226,0.10)), #15151D",
-                  border: "1px solid rgba(255,138,0,0.25)",
-                  boxShadow: "0 8px 32px rgba(255,138,0,0.15)",
+                  background: "linear-gradient(135deg, rgba(255,152,0,0.15), rgba(166,94,18,0.10)), #15151D",
+                  border: "1px solid rgba(255,152,0,0.25)",
+                  boxShadow: "0 8px 32px rgba(255,152,0,0.15)",
                 }}
               >
                 <div className="font-bold text-2xl mb-1 text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(135deg, ${ORANGE}, ${PURPLE})` }}>24/7</div>
@@ -95,7 +95,7 @@ export default function About() {
             <div>
               <div
                 className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
-                style={{ background: "rgba(123,74,226,0.15)", border: "1px solid rgba(123,74,226,0.40)", color: PURPLE }}
+                style={{ background: "rgba(166,94,18,0.15)", border: "1px solid rgba(166,94,18,0.40)", color: PURPLE }}
               >
                 Why Choose Us
               </div>
@@ -133,7 +133,7 @@ export default function About() {
       </section>
 
       {/* ── STATS ─────────────────────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: BG, borderBottom: "1px solid rgba(255,138,0,0.12)" }}>
+      <section className="py-20" style={{ background: BG, borderBottom: "1px solid rgba(255,152,0,0.12)" }}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -158,7 +158,7 @@ export default function About() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-20 text-center" style={{ background: `linear-gradient(135deg, rgba(255,138,0,0.08), rgba(123,74,226,0.08)), ${BG}` }}>
+      <section className="py-20 text-center" style={{ background: `linear-gradient(135deg, rgba(255,152,0,0.08), rgba(166,94,18,0.08)), ${BG}` }}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">Ready to Meet the Team?</h2>
           <p className="mb-8 text-lg" style={{ color: "rgba(255,255,255,0.55)" }}>Book an appointment and experience the difference.</p>

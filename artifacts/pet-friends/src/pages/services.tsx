@@ -34,15 +34,15 @@ export default function Services() {
         className="py-24 lg:py-32 relative overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 50%, rgba(255,138,0,0.14) 0%, transparent 50%), " +
-            "radial-gradient(ellipse at 80% 30%, rgba(123,74,226,0.14) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 20% 50%, rgba(255,152,0,0.14) 0%, transparent 50%), " +
+            "radial-gradient(ellipse at 80% 30%, rgba(166,94,18,0.14) 0%, transparent 50%), " +
             BG,
         }}
       >
         <div className="container mx-auto px-4 text-center">
           <div
             className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-            style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.35)", color: ORANGE }}
+            style={{ background: "rgba(255,152,0,0.15)", border: "1px solid rgba(255,152,0,0.35)", color: ORANGE }}
           >
             What We Offer
           </div>
@@ -50,7 +50,7 @@ export default function Services() {
             Complete Care{" "}
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347, #C77DFF)" }}
+              style={{ backgroundImage: "linear-gradient(135deg, #FF9800, #D9A441)" }}
             >
               Under One Roof
             </span>
@@ -63,7 +63,7 @@ export default function Services() {
 
       {/* ── SERVICES GRID ────────────────────────────────────────────────── */}
       <section className="pb-24 relative" style={{ background: BG }}>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(255,138,0,0.06) 0%, transparent 60%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(255,152,0,0.06) 0%, transparent 60%)" }} />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((svc, i) => (
@@ -74,8 +74,8 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="p-8 rounded-2xl cursor-pointer group transition-all duration-300"
-                style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 4px 24px rgba(123,74,226,0.08)" }}
-                whileHover={{ y: -6, boxShadow: "0 20px 56px rgba(123,74,226,0.22), 0 0 0 1px rgba(255,138,0,0.20)" }}
+                style={{ background: CARD_BG, border: CARD_BORDER, boxShadow: "0 4px 24px rgba(166,94,18,0.08)" }}
+                whileHover={{ y: -6, boxShadow: "0 20px 56px rgba(166,94,18,0.22), 0 0 0 1px rgba(255,152,0,0.20)" }}
               >
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={svc.style}>
                   {svc.icon}
@@ -100,8 +100,8 @@ export default function Services() {
         className="py-20 text-center"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 50%, rgba(255,138,0,0.12) 0%, transparent 60%), " + BG,
-          borderTop: "1px solid rgba(255,138,0,0.15)",
+            "radial-gradient(ellipse at 50% 50%, rgba(255,152,0,0.12) 0%, transparent 60%), " + BG,
+          borderTop: "1px solid rgba(255,152,0,0.15)",
         }}
       >
         <div className="container mx-auto px-4">
