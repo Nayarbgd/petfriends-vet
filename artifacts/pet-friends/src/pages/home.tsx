@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Phone, MessageCircle, Star, StarHalf, ChevronRight, X, ChevronLeft } from "lucide-react";
@@ -70,6 +71,7 @@ function ClientGallery() {
   }, [lightbox, close, prev, next]);
 
   return (
+    <>
     <section className="py-24 relative overflow-hidden" style={{ background: BG, borderTop: "1px solid rgba(123,74,226,0.12)" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(255,138,0,0.07) 0%, transparent 65%)" }} />
       <div className="container mx-auto px-4 relative z-10">
@@ -150,7 +152,10 @@ function ClientGallery() {
         </div>
       </div>
 
-      {/* ── LIGHTBOX ──────────────────────────────────────────────────────── */}
+    </section>
+
+    {/* ── LIGHTBOX — rendered via portal so it escapes overflow/transform parents ── */}
+    {createPortal(
       <AnimatePresence>
         {lightbox !== null && (
           <motion.div
@@ -224,8 +229,10 @@ function ClientGallery() {
             </p>
           </motion.div>
         )}
-      </AnimatePresence>
-    </section>
+      </AnimatePresence>,
+      document.body
+    )}
+    </>
   );
 }
 
