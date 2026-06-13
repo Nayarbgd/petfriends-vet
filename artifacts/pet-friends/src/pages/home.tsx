@@ -247,10 +247,31 @@ export default function Home() {
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 min-h-[700px] flex items-center">
+      <section className="relative overflow-hidden min-h-[700px] flex items-center" style={{ background: BG }}>
 
-        <div className="container mx-auto px-4 relative z-10 w-full">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="max-w-2xl">
+        {/* Full-bleed dog image anchored to the right */}
+        <div className="absolute inset-0 z-0">
+          {/* Container takes the right 58% of the hero */}
+          <div className="absolute right-0 top-0 bottom-0 w-[58%]">
+            <img
+              src="/hero-dog-new.png"
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "55% center" }}
+            />
+          </div>
+          {/* Gradient: solid dark on the left → transparent on the right */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to right, #0F1018 38%, rgba(15,16,24,0.55) 56%, rgba(15,16,24,0.05) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10 w-full py-28 lg:py-36">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="max-w-xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-widest" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.40)", color: ORANGE, boxShadow: "0 0 16px rgba(255,138,0,0.20)" }}>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: ORANGE }} />
@@ -259,7 +280,7 @@ export default function Home() {
               24/7 Emergency Vet Care
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-poppins font-extrabold leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-5xl lg:text-6xl font-poppins font-extrabold leading-[1.1] tracking-tight mb-6">
               More Than a Clinic —{" "}
               <br />
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347, #C77DFF)" }}>
@@ -268,7 +289,7 @@ export default function Home() {
               for Their Hearts
             </h1>
 
-            <p className="text-lg mb-8 leading-relaxed max-w-xl" style={{ color: "rgba(255,255,255,0.80)" }}>
+            <p className="text-lg mb-8 leading-relaxed" style={{ color: "rgba(255,255,255,0.80)" }}>
               24/7 emergency vet care, expert grooming & complete pet health — all in JVC, Dubai.
             </p>
 
