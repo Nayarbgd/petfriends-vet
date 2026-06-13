@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { PawPrint, Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 import { ORANGE, PURPLE, primaryBtn, HEADER_BG } from "@/lib/brand";
 
 const navLinks = [
@@ -25,12 +25,12 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110"
-            style={{ background: `linear-gradient(135deg, ${ORANGE}, ${PURPLE})`, boxShadow: "0 0 20px rgba(255,138,0,0.45)" }}
-          >
-            <PawPrint className="w-5 h-5 text-white" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="Pet Friends Vet Clinic logo"
+            className="w-11 h-11 rounded-full object-cover transition-transform group-hover:scale-110"
+            style={{ boxShadow: "0 0 20px rgba(255,138,0,0.45)" }}
+          />
           <span className="font-poppins font-bold text-xl tracking-tight hidden sm:block text-white">
             Pet Friends
           </span>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
-import { PawPrint, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 import { ORANGE, PURPLE } from "@/lib/brand";
 
 const quickLinks = [
@@ -24,13 +24,13 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-6 w-fit">
-              <div
-                className="w-9 h-9 rounded-full flex items-center justify-center"
-                style={{ background: `linear-gradient(135deg, ${ORANGE}, ${PURPLE})`, boxShadow: "0 0 16px rgba(255,138,0,0.35)" }}
-              >
-                <PawPrint className="w-4 h-4 text-white" />
-              </div>
+            <Link href="/" className="flex items-center gap-3 mb-6 w-fit group">
+              <img
+                src="/logo.png"
+                alt="Pet Friends Vet Clinic logo"
+                className="w-10 h-10 rounded-full object-cover transition-transform group-hover:scale-110"
+                style={{ boxShadow: "0 0 16px rgba(255,138,0,0.35)" }}
+              />
               <span className="font-poppins font-bold text-xl tracking-tight text-white">Pet Friends</span>
             </Link>
             <p className="mb-6 max-w-sm text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
