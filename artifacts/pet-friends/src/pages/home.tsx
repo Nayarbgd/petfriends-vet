@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, CheckCircle2, PawPrint, MessageCircle, Star, StarHalf, ChevronRight, Menu, X, Syringe, Scissors, Shield } from "lucide-react";
+import heroDogImg from "@assets/ChatGPT_Image_13_jun_2026,_09_50_23_p.m._1781373267394.png";
 
 import { useCreateAppointment } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
@@ -175,73 +176,63 @@ export default function Home() {
       <main className="flex-1">
 
         {/* ── HERO ────────────────────────────────────────────────────────────── */}
-        <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden" style={{ background: HERO_BG }}>
-          {/* Extra inner glows for depth */}
-          <div className="absolute inset-0 pointer-events-none z-0">
-            <div className="absolute top-0 left-0 w-full h-full" style={{ background: "radial-gradient(ellipse at 20% 40%, rgba(255,138,0,0.10) 0%, transparent 55%)" }} />
-            <div className="absolute top-0 right-0 w-full h-full" style={{ background: "radial-gradient(ellipse at 80% 60%, rgba(123,74,226,0.12) 0%, transparent 55%)" }} />
-          </div>
+        <section
+          className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden min-h-[700px] flex items-center"
+          style={{
+            backgroundImage: `url(${heroDogImg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center right",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(90deg, rgba(13,13,18,0.88) 0%, rgba(13,13,18,0.70) 50%, rgba(13,13,18,0.30) 100%)" }} />
+          {/* Subtle brand glow on top of image */}
+          <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 10% 50%, rgba(255,138,0,0.12) 0%, transparent 50%)" }} />
 
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-widest" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.40)", color: ORANGE, boxShadow: "0 0 16px rgba(255,138,0,0.20)" }}>
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: ORANGE }} />
-                    <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: ORANGE }} />
-                  </span>
-                  24/7 Emergency Vet Care
+          <div className="container mx-auto px-4 relative z-10 w-full">
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="max-w-2xl">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-widest" style={{ background: "rgba(255,138,0,0.15)", border: "1px solid rgba(255,138,0,0.40)", color: ORANGE, boxShadow: "0 0 16px rgba(255,138,0,0.20)" }}>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: ORANGE }} />
+                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: ORANGE }} />
+                </span>
+                24/7 Emergency Vet Care
+              </div>
+
+              <h1 className="text-5xl lg:text-7xl font-poppins font-extrabold leading-[1.1] tracking-tight mb-6">
+                More Than a Clinic —{" "}
+                <br />
+                <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347, #C77DFF)" }}>
+                  A Second Home
+                </span>{" "}
+                for Their Hearts
+              </h1>
+
+              <p className="text-lg mb-8 leading-relaxed max-w-xl" style={{ color: "rgba(255,255,255,0.80)" }}>
+                24/7 emergency vet care, expert grooming & complete pet health — all in JVC, Dubai.
+              </p>
+
+              <div className="flex flex-wrap gap-4 mb-10">
+                <button data-testid="button-book-hero" onClick={() => go("booking")} className="h-14 px-8 rounded-xl text-base transition-transform hover:scale-105" style={primaryBtn}>
+                  Book an Appointment
+                </button>
+                <a href="https://wa.me/971527394636" target="_blank" rel="noreferrer" data-testid="link-whatsapp-hero" className="h-14 px-8 rounded-xl text-base flex items-center gap-2 transition-all hover:brightness-125" style={secondaryBtn}>
+                  <MessageCircle className="w-5 h-5" />Chat on WhatsApp
+                </a>
+              </div>
+
+              <div className="flex items-center gap-4 text-sm flex-wrap" style={{ color: "rgba(255,255,255,0.70)" }}>
+                <div className="flex items-center text-yellow-400">
+                  {[...Array(4)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                  <StarHalf className="w-4 h-4 fill-current" />
                 </div>
-
-                <h1 className="text-5xl lg:text-7xl font-poppins font-extrabold leading-[1.1] tracking-tight mb-6">
-                  More Than a Clinic —{" "}
-                  <br />
-                  <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, #FF8A00, #FFB347, #C77DFF)" }}>
-                    A Second Home
-                  </span>{" "}
-                  for Their Hearts
-                </h1>
-
-                <p className="text-lg mb-8 leading-relaxed max-w-xl" style={{ color: "rgba(255,255,255,0.70)" }}>
-                  24/7 emergency vet care, expert grooming & complete pet health — all in JVC, Dubai.
-                </p>
-
-                <div className="flex flex-wrap gap-4 mb-10">
-                  <button data-testid="button-book-hero" onClick={() => go("booking")} className="h-14 px-8 rounded-xl text-base transition-transform hover:scale-105" style={primaryBtn}>
-                    Book an Appointment
-                  </button>
-                  <a href="https://wa.me/971527394636" target="_blank" rel="noreferrer" data-testid="link-whatsapp-hero" className="h-14 px-8 rounded-xl text-base flex items-center gap-2 transition-all hover:brightness-125" style={secondaryBtn}>
-                    <MessageCircle className="w-5 h-5" />Chat on WhatsApp
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-4 text-sm flex-wrap" style={{ color: "rgba(255,255,255,0.55)" }}>
-                  <div className="flex items-center text-yellow-400">
-                    {[...Array(4)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                    <StarHalf className="w-4 h-4 fill-current" />
-                  </div>
-                  <span>4.5★ · 1,053 reviews</span>
-                  <span className="w-1 h-1 rounded-full bg-white/25" />
-                  <span style={{ color: PURPLE }}>JVC, Dubai</span>
-                </div>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.65, delay: 0.2 }} className="relative min-h-[420px] lg:min-h-[600px]">
-                <div
-                  className="absolute inset-0 rounded-2xl flex items-center justify-center text-sm font-medium p-8 text-center"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(255,138,0,0.18), rgba(123,74,226,0.18))",
-                    border: "2px dashed rgba(255,138,0,0.45)",
-                    color: "rgba(255,138,0,0.65)",
-                    boxShadow: "0 0 40px rgba(255,138,0,0.10), inset 0 0 40px rgba(123,74,226,0.08)",
-                  }}
-                  aria-label="Hero image: vet gently holding a calm dog in warm-lit Pet Friends clinic JVC Dubai"
-                >
-                  [Hero image: vet gently holding a calm dog in warm-lit clinic]
-                </div>
-              </motion.div>
-            </div>
+                <span>4.5★ · 1,053 reviews</span>
+                <span className="w-1 h-1 rounded-full bg-white/25" />
+                <span style={{ color: PURPLE }}>JVC, Dubai</span>
+              </div>
+            </motion.div>
           </div>
         </section>
 
